@@ -7,10 +7,10 @@ const NavBar = () => {
     return <div className="nav-bar">
         <div className="icons" >
             <a href="https://www.linkedin.com/in/bencekaselyak/" target="_blank" className="nav-link">
-                <FaLinkedin color="white" />
+                <FaLinkedin color="white" className="icon" />
             </a>
             <a href="https://github.com/kaselyakbence" target="_blank" className="nav-link">
-                <FaGithub color="white" />
+                <FaGithub color="white" className="icon" />
             </a>
         </div>
         <div className="links">
