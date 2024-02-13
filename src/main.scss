@@ -1,0 +1,38 @@
+//Main colors
+
+$black: #06070eff;
+$white: #fdfffcff;
+$red: #c1292eff;
+$yellow: #f1d302ff;
+$blue: #3b60e4ff;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    background-color: $black;
+
+    .container {
+
+        width: 100%;
+        height: 90vh;
+      
+        background-image: url("./assets/code_background_2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        background-blend-mode: color;
+      
+        opacity: 0.2;
+      
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        z-index: -1; 
+    }
+
+}
