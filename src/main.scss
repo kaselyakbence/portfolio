@@ -13,7 +13,7 @@ $blue: #3b60e4ff;
 }
  
 body {
-    background-color: $blue;
+    background-color: $red;
 
     .container {
 
@@ -26,7 +26,7 @@ body {
         background-position: 50% 0;
         background-blend-mode: color;
       
-        opacity: 0.7;
+        opacity: 0.75;
       
         -ms-background-size: cover;
         -o-background-size: cover;
