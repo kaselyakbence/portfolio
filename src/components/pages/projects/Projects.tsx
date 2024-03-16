@@ -4,10 +4,10 @@ import Project from "./subcomponents/Project";
 const Projects = () => {
   return (
     <div className="project-grid">
-      <Project />
-      <Project />
-      <Project />
-      <Project />
+      <Project name="Portfolio" />
+      <Project name="Project" />
+      <Project name="Project" />
+      <Project name="Project" />
     </div>
   );
 };

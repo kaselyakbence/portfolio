@@ -1,11 +1,15 @@
 import "./project.scss";
 import background from "../../../../assets/projects/portfolio.png";
 
-function Project() {
+interface ProjectProps {
+  name: string;
+}
+
+const Project = ({ name }: ProjectProps) => {
   return (
     <div className="project">
       <img src={background} alt="" className="project-image" />
-      <p>Project</p>
+      <p>{name}</p>
       <div className="buttons">
         <a href="">
           <button className="button project-button">GitHub</button>
@@ -16,6 +20,6 @@ function Project() {
       </div>
     </div>
   );
-}
+};
 
 export default Project;
