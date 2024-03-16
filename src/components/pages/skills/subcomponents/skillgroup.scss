@@ -1,0 +1,15 @@
+@import "../../../../main.scss";
+
+.skill-group {
+    @extend %custom-border;
+
+    width: 20%;
+    height: 50vh;
+
+    h2{
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+
+    
+}

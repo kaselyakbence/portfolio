@@ -1,12 +1,10 @@
 @import "../../../../main.scss";
 
 .project {
+    @extend %custom-border;
+
     width: 20vw;
     height: 40vh;
-
-    border: 3px solid black;
-    border-radius: 25px;
-    background-color: darken($color: $violet, $amount: 0.3);
 
     .project-image {
         margin-top: 3%;

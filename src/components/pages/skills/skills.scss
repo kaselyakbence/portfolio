@@ -1,0 +1,24 @@
+.skills-page {
+    width: 100%;
+    height: 100%;
+    padding-top: 2%;
+
+    .text {
+        width: 80%;
+        margin: auto;
+
+        p{
+            margin-top: 1%;
+        }
+    }
+
+    .skills {
+        margin: auto;
+        margin-top: 5%;
+        width: 80vw;
+
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+}

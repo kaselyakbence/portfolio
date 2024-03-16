@@ -17,19 +17,21 @@ const About = () => {
         </p>
         <ul>
           <li
-            className={`${about === "personal" ? "active" : ""} button`}
+            className={`${about === "personal" ? "active" : ""} about-button`}
             onClick={() => setAbout("personal")}
           >
             Personal goals
           </li>
           <li
-            className={`${about === "professional" ? "active" : ""} button`}
+            className={`${
+              about === "professional" ? "active" : ""
+            } about-button`}
             onClick={() => setAbout("professional")}
           >
             Professional experience
           </li>
           <li
-            className={`${about === "education" ? "active" : ""} button`}
+            className={`${about === "education" ? "active" : ""} about-button`}
             onClick={() => setAbout("education")}
           >
             Academic experience
