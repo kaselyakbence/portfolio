@@ -3,18 +3,20 @@ import background from "../../../../assets/projects/portfolio.png";
 
 interface ProjectProps {
   name: string;
+  githubLink: string;
+  demoLink: string;
 }
 
-const Project = ({ name }: ProjectProps) => {
+const Project = ({ name, githubLink, demoLink }: ProjectProps) => {
   return (
     <div className="project">
       <img src={background} alt="" className="project-image" />
       <p>{name}</p>
       <div className="buttons">
-        <a href="">
+        <a href={githubLink}>
           <button className="button project-button">GitHub</button>
         </a>
-        <a href="">
+        <a href={demoLink}>
           <button className="button project-button">Live demo</button>
         </a>
       </div>
