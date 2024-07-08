@@ -35,6 +35,12 @@
     .nav-link{
         color: $white;
         text-decoration: none;
+
+        &:hover {
+            color:$bittersweet;
+            font-weight: bold;
+            
+        }
     }
 
 }
