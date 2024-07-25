@@ -11,15 +11,15 @@ export interface SkillProps {
 
 const Skill = ({ name, number, isHalf }: SkillProps) => {
   return (
-    <div className="skill">
+    <div className="skill" key={name}>
       <p>{name}:</p>
       <div className="level">
-        {[...Array(number)].map(() => (
-          <FaCircle className="circle" />
+        {[...Array(number)].map((_, i) => (
+          <FaCircle className="circle" key={name + i} />
         ))}
         {isHalf ? <FaCircleHalfStroke className="circle" /> : <></>}
-        {[...Array(5 - (isHalf ? number + 1 : number))].map(() => (
-          <FaRegCircle className="circle" />
+        {[...Array(5 - (isHalf ? number + 1 : number))].map((_, i) => (
+          <FaRegCircle className="circle" key={name + i} />
         ))}
       </div>
     </div>
