@@ -6,10 +6,23 @@ $violet: #0e0533;
 $bittersweet:#FA7E61;
 
 //Custom stuff
+
+//Custom border through the page
 %custom-border {
     border: 3px solid black;
-    border-radius: 25px;
+    //border-radius: 25px;
     background-color: darken($color: $violet, $amount: 0.75);
+}
+
+//To make something unselectable
+%no-select {
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+           -khtml-user-select: none; /* Konqueror HTML */
+             -moz-user-select: none; /* Old versions of Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */   
 }
 
 

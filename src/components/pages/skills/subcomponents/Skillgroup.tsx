@@ -11,8 +11,8 @@ const Skillgroup = ({ name, skills }: SkillgroupProps) => {
   return (
     <div className="skill-group">
       <h2>{name}</h2>
-      {skills.map(({ name, number, isHalf }) => (
-        <Skill name={name} number={number} isHalf={isHalf} />
+      {skills.map(({ name, number, isHalf }, i) => (
+        <Skill name={name} number={number} isHalf={isHalf} key={name + i} />
       ))}
     </div>
   );

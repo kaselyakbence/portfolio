@@ -1,5 +1,7 @@
 import "./skills.scss";
 import Skillgroup from "./subcomponents/Skillgroup";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const programmingSkills = [
   { name: "Typescript", number: 4 },
@@ -29,6 +31,35 @@ const testingSkills = [
   { name: "Jest", number: 3, isHalf: true },
 ];
 
+const languageSkills = [
+  { name: "Hungarian", number: 5 },
+  { name: "English", number: 4, isHalf: true },
+  { name: "German", number: 2, isHalf: true },
+];
+
+const responsive = {
+  largeDesktop: {
+    breakpoint: { max: 4000, min: 1300 },
+    items: 4,
+    partialVisibilityGutter: 30,
+  },
+  desktop: {
+    breakpoint: { max: 1300, min: 800 },
+    items: 3,
+    partialVisibilityGutter: 30,
+  },
+  tablet: {
+    breakpoint: { max: 800, min: 500 },
+    items: 2,
+    partialVisibilityGutter: 30,
+  },
+  mobile: {
+    breakpoint: { max: 500, min: 0 },
+    items: 1,
+    partialVisibilityGutter: 30,
+  },
+};
+
 const Skills = () => {
   return (
     <div className="skills-page">
@@ -41,7 +72,11 @@ const Skills = () => {
           technical skills I acquired in Software development and Testing.
         </p>
       </div>
-      <div className="skills">
+      <Carousel
+        responsive={responsive}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        className="skills"
+      >
         <Skillgroup
           name="Programming languages and tools"
           skills={programmingSkills}
@@ -49,9 +84,19 @@ const Skills = () => {
         <Skillgroup name="Front End Development" skills={frontendSkills} />
         <Skillgroup name="Back End Development" skills={backendSkills} />
         <Skillgroup name="Software Testing" skills={testingSkills} />
-      </div>
+        <Skillgroup name="Languages" skills={languageSkills} />
+      </Carousel>
     </div>
   );
 };
 
 export default Skills;
+
+{
+  /* <Carousel responsive={responsive}>
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+      <div>Item 4</div>
+    </Carousel> */
+}
