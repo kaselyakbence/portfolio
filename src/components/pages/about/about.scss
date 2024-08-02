@@ -13,10 +13,10 @@
    align-items: center;
    
    .card {
-    width: 40%;
+    width: 40%; 
     height: 80%;
 
-    @extend %custom-border;
+    @extend %custom-card;
 
     padding: 1%;
 
