@@ -8,11 +8,26 @@ $bittersweet:#FA7E61;
 //Custom stuff
 
 //Custom border through the page
-%custom-border {
+%custom-card {
     border: 3px solid black;
     //border-radius: 25px;
     background-color: darken($color: $violet, $amount: 0.75);
 }
+
+%primary-button {
+    padding: 3px;
+
+    color: $bittersweet;
+    border: 1px solid $bittersweet;
+
+    background-color: rgba(255,0,0,0.1);
+
+    &:hover {
+        color: lighten($color: $bittersweet, $amount: 10);
+        border: 1px solid lighten($color: $bittersweet, $amount: 10);
+    }
+}
+
 
 //To make something unselectable
 %no-select {
