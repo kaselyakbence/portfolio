@@ -13,14 +13,51 @@
    align-items: center;
    
    .card {
-    width: 40%; 
-    height: 80%;
+         @extend %custom-card;
 
-    @extend %custom-card;
+         height: 90%;
+         width: 100%;
 
-    padding: 1%;
+         display: flex;
+      .card-left {
+         width: 40%; 
+         height: 100%;
+     
+         padding: 1%;
 
+         h1{
+            margin-top: 2%;
+         }
+
+         p {
+            margin-top: 5%;
+            margin-bottom: 5%;
+         }
+
+         .line{
+            border: 1px solid white;
+            width: 90%;
+            margin: auto;
+         }
+
+         button {
+            @extend %primary-button
+         }
+     
+        }
+        .card-right {
+           width: 60%; 
+           height: 100%;
+        
+           padding: 1%;
+
+           .about-info {
+
+           }
+
+          
+       
+          }
    }
-
 
 }
