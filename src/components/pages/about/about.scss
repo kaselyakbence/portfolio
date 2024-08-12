@@ -51,13 +51,37 @@
         
            padding: 1%;
 
-           .about-info {
-
+           .jHeaAq {
+            margin: 0;
            }
 
+           .timeline-card-content {
+            margin-bottom: 1rem;
+           }
+
+           .timeline-vertical-circle  {
+            pointer-events: none;
+            cursor: default;
+           }
+
+           .timeline-item-title {
+            color: white;
+           }
+
+           .rc-card-title {
+            color:$bittersweet;
+            a {
+               text-decoration: none;
+            }
+           }
+           .card-content-wrapper {
+            pointer-events: none;
+            cursor: default;
+           }
           
        
           }
+
    }
 
 }

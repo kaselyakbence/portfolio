@@ -14,6 +14,7 @@ $bittersweet:#FA7E61;
     background-color: darken($color: $violet, $amount: 0.75);
 }
 
+//Primary button
 %primary-button {
     padding: 3px;
 
@@ -28,6 +29,14 @@ $bittersweet:#FA7E61;
     }
 }
 
+%disable-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
 
 //To make something unselectable
 %no-select {
@@ -39,6 +48,7 @@ $bittersweet:#FA7E61;
                   user-select: none; /* Non-prefixed version, currently
                                         supported by Chrome, Edge, Opera and Firefox */   
 }
+
 
 
 * {
@@ -54,6 +64,8 @@ $bittersweet:#FA7E61;
 body {
     color: $white;
     background-color: $violet;
+
+   
 
     .container {
 
@@ -84,4 +96,6 @@ body {
         }
     }
 
+
 }
+
