@@ -13,14 +13,96 @@
    align-items: center;
    
    .card {
-    width: 40%; 
-    height: 80%;
+         @extend %custom-card;
 
-    @extend %custom-card;
+         height: 90%;
+         width: 100%;
 
-    padding: 1%;
+         display: flex;
+      .card-left {
+         width: 40%; 
+         height: 100%;
+     
+         padding: 1%;
+
+         h1{
+            margin-top: 2%;
+         }
+
+         p {
+            margin-top: 5%;
+            margin-bottom: 5%;
+         }
+
+         .line{
+            border: 1px solid white;
+            width: 90%;
+            margin: auto;
+         }
+         ul {
+            margin-top: 5%;
+
+
+            li {
+               margin: auto;
+               margin-top: 4%;
+               
+
+               width: 50%;
+
+               @extend %secondary-button;               
+            }
+         }
+     
+        }
+      .card-right {
+           width: 60%; 
+           height: 100%;
+        
+           padding: 1%;
+
+           .jHeaAq {
+            margin: 0;
+           }
+
+           .timeline-card-content {
+            margin-bottom: 1rem;
+
+            height: fit-content;
+           }
+
+           .timeline-vertical-circle  {
+            pointer-events: none;
+            cursor: default;
+           }
+
+           .timeline-item-title {
+            color: white;
+           }
+
+           .card-description {
+            align-items: flex-start;
+           }
+           .card-content-wrapper {
+            pointer-events: none;
+            cursor: default;
+
+            width: 100%;
+
+            height: fit-content;
+           }
+
+           .about-info {
+            margin: 10% 5%;
+
+            p {
+               margin-top: 5%;
+            }
+           }
+          
+       
+          }
 
    }
-
 
 }
