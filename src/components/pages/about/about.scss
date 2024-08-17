@@ -39,13 +39,23 @@
             width: 90%;
             margin: auto;
          }
+         ul {
+            margin-top: 5%;
 
-         button {
-            @extend %primary-button
+
+            li {
+               margin: auto;
+               margin-top: 4%;
+               
+
+               width: 50%;
+
+               @extend %secondary-button;               
+            }
          }
      
         }
-        .card-right {
+      .card-right {
            width: 60%; 
            height: 100%;
         
@@ -57,6 +67,8 @@
 
            .timeline-card-content {
             margin-bottom: 1rem;
+
+            height: fit-content;
            }
 
            .timeline-vertical-circle  {
@@ -68,15 +80,24 @@
             color: white;
            }
 
-           .rc-card-title {
-            color:$bittersweet;
-            a {
-               text-decoration: none;
-            }
+           .card-description {
+            align-items: flex-start;
            }
            .card-content-wrapper {
             pointer-events: none;
             cursor: default;
+
+            width: 100%;
+
+            height: fit-content;
+           }
+
+           .about-info {
+            margin: 10% 5%;
+
+            p {
+               margin-top: 5%;
+            }
            }
           
        

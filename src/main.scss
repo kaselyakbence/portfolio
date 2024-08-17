@@ -29,6 +29,26 @@ $bittersweet:#FA7E61;
     }
 }
 
+//Primary button
+%secondary-button {
+    padding: 3px;
+
+    color: $white;
+    border: 1px solid $white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+
+    &:hover {
+        color: darken($color: $white, $amount: 10);
+        border: 1px solid lighten($color: $white, $amount: 10);
+    }
+}
+
+
 %disable-scrollbar {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -98,4 +118,3 @@ body {
 
 
 }
-
