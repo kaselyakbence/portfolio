@@ -1,9 +1,9 @@
 import { CustomTimelineItemProps } from "./CustomTimelineItem";
 import Tp from "../../../../assets/tp-main-logo-svg.svg";
-import Testlio from "../../../../assets/testlio-logo-blue.webp";
+import Testlio from "../../../../assets/testlio-logo.png";
 import Mohanet from "../../../../assets/logo_mohanet.png";
 import ELTE from "../../../../assets/elte_icon.jpg";
-import UCPH from "../../../../assets/ucph_logo.webp";
+import UCPH from "../../../../assets/ucph_logo.png";
 import Humboldt from "../../../../assets/humboldt_logo.png";
 
 export const professionalItems: CustomTimelineItemProps[] = [
