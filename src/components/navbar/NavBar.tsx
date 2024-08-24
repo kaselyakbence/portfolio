@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import "./index.scss";
+import "./navbar.scss";
+import { Link } from "react-scroll";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const NavBar = () => {
@@ -22,18 +22,24 @@ const NavBar = () => {
         </a>
       </div>
       <div className="links">
-        <NavLink to="/" className="nav-link">
+        <Link to="home" className="nav-link" activeClass="active" smooth spy>
           <p>Home</p>
-        </NavLink>
-        <NavLink to="/about" className="nav-link">
+        </Link>
+        <Link to="about" className="nav-link" activeClass="active" smooth spy>
           <p>About</p>
-        </NavLink>
-        <NavLink to="/skills" className="nav-link">
+        </Link>
+        <Link to="skills" className="nav-link" activeClass="active" smooth spy>
           <p>Skills</p>
-        </NavLink>
-        <NavLink to="/projects" className="nav-link">
+        </Link>
+        <Link
+          to="projects"
+          className="nav-link"
+          activeClass="active"
+          smooth
+          spy
+        >
           <p>Projects</p>
-        </NavLink>
+        </Link>
       </div>
     </div>
   );
