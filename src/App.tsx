@@ -8,13 +8,15 @@ import Section from "./components/Section";
 const App = () => {
   return (
     <>
-      <div className="video">
+      <NavBar />
+      <div className="video" style={{ zIndex: -1 }}>
         <video autoPlay muted loop>
           <source src="/background.mp4" type="video/mp4" />
         </video>
       </div>
-      <NavBar />
-      <Section id="home" children={<Home />}></Section>
+      <Section id="home">
+        <Home />
+      </Section>
       <Section id="about">
         <About />
       </Section>
