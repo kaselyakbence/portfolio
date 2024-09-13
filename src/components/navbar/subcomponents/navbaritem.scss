@@ -1,0 +1,17 @@
+@import "../../../main.scss";
+
+.navbaritem {
+    &:hover {
+        color:$bittersweet;
+        font-weight: bold;
+    }
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+
+    .active {
+        color: lighten($color: $bittersweet, $amount: 0.5)
+    }
+
+}

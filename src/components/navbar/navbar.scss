@@ -10,7 +10,8 @@
 
     position: sticky;
     top: 0px;
-    z-index: 9999;
+    left: 0px;
+    z-index: 9;
 
  
     .icons {
@@ -42,15 +43,19 @@
 
     }
 
-    .nav-link{
-        color: $white;
-        text-decoration: none;
+    // .nav-link{
+    //     color: $white;
+    //     text-decoration: none;
 
-        &:hover {
-            color:$bittersweet;
-            font-weight: bold;
+    //     .home {
+    //         font-size: 1.4rem;
+    //     }
+
+    //     &:hover {
+    //         color:$bittersweet;
+    //         font-weight: bold;
             
-        }
-    }
+    //     }
+    // }
 
 }
