@@ -25,8 +25,8 @@ const CustomTimeline = ({ items }: CustomTimelineProps) => {
       }}
       disableNavOnKey
     >
-      {items.map((item) => (
-        <CustomTimelineItem {...item} />
+      {items.map((item, i) => (
+        <CustomTimelineItem key={"timelineitem" + i} {...item} />
       ))}
     </Chrono>
   );

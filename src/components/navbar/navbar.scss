@@ -10,7 +10,8 @@
 
     position: sticky;
     top: 0px;
-    z-index: 9999;
+    left: 0px;
+    z-index: 9;
 
  
     .icons {
@@ -35,22 +36,6 @@
         min-width: 25vw;
 
         font-size: 1.2rem;
-
-        .active {
-            color: lighten($color: $bittersweet, $amount: 0.5)
-        }
-
-    }
-
-    .nav-link{
-        color: $white;
-        text-decoration: none;
-
-        &:hover {
-            color:$bittersweet;
-            font-weight: bold;
-            
-        }
     }
 
 }
