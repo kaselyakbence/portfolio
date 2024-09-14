@@ -36,26 +36,6 @@
         min-width: 25vw;
 
         font-size: 1.2rem;
-
-        .active {
-            color: lighten($color: $bittersweet, $amount: 0.5)
-        }
-
     }
-
-    // .nav-link{
-    //     color: $white;
-    //     text-decoration: none;
-
-    //     .home {
-    //         font-size: 1.4rem;
-    //     }
-
-    //     &:hover {
-    //         color:$bittersweet;
-    //         font-weight: bold;
-            
-    //     }
-    // }
 
 }
