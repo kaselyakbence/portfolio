@@ -29,10 +29,19 @@ const NavBar = (navbarState: NavBarState) => {
         </a>
       </div>
       <div className="links">
-        {(Object.keys(navbarState) as (keyof NavBarState)[]).map((key) => (
-          <NavbarItem id={key} key={key} active={navbarState[key]} />
-        ))}
+        <>
+          {/* <div className="ham-menu active">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div> */}
+          {(Object.keys(navbarState) as (keyof NavBarState)[]).map((key) => (
+            <NavbarItem id={key} key={key} active={navbarState[key]} />
+          ))}
+        </>
       </div>
+
+      {/* <div className="sidemenu active"></div> */}
     </div>
   );
 };
