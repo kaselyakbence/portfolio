@@ -10,6 +10,12 @@
         text-transform: capitalize;
     }
 
+    @include sm {
+        display: none;
+    }
+
+
+
 }
 
 .active {

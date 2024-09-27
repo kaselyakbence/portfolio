@@ -7,6 +7,31 @@ $bittersweet:#FA7E61;
 
 //Custom stuff
 
+//Media queries
+
+// Small devices
+@mixin sm {
+    @media (max-width: 768px) {
+        @content;
+    }
+ }
+ 
+ // Medium devices
+ @mixin md {
+    @media (min-width:768px) and (max-width:1200px) {
+        @content;
+    }
+ }
+ 
+ // Large devices
+ @mixin lg {
+    @media (min-width:1200px) { 
+        @content; 
+    }
+ }
+ 
+
+
 //Custom border through the page
 %custom-card {
     border: 3px solid black;
@@ -68,7 +93,6 @@ $bittersweet:#FA7E61;
                   user-select: none; /* Non-prefixed version, currently
                                         supported by Chrome, Edge, Opera and Firefox */   
 }
-
 
 
 

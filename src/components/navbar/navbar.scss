@@ -25,7 +25,18 @@
         .icon {
             width: 30px;
             height: 30px;
+    
+            z-index: 9;
+    
+            @include sm {
+                width: 35px;
+                height: 35px;
+    
+                margin-left: 20px;
+            }
         }
+
+
     }
 
     .links {
@@ -36,6 +47,94 @@
         min-width: 25vw;
 
         font-size: 1.2rem;
+
+        @include md {
+            min-width: 30vw;
+        }
+
+        @include sm {
+            justify-content: right;
+            margin-right: 5%;
+        }
+
+        .menu-button {
+            display: none;
+
+            @include sm {
+                display: block;
+            }
+        }
     }
+
+    .ham-menu {
+        width: 30px;
+        height: 30px;
+
+        position: relative;
+
+        z-index: 99;
+
+        span {
+            height: 5px;
+            width: 100%;
+            background-color: white;
+
+            border-radius: 25px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            transition: 0.3s ease;
+
+            &:nth-last-child(1) {
+                top: 25%;
+            }
+            &:nth-last-child(3) {
+                top: 75%;
+            }
+
+        }
+
+    }
+
+    .ham-menu.active {
+
+        border: 1px solid red;
+        &:nth-last-child(1) {
+            top: 50%;
+            transform: translate(-50%,-50%) rotate(45deg);
+        }
+        &:nth-last-child(2) {
+            opacity: 0;
+        }  
+        &:nth-last-child(3) {
+            top: 50%;
+            transform: translate(-50%,-50%) rotate(-45deg);
+        }  
+    }
+
+    .sidemenu {
+        height: 100vh;
+        width: 60vw;
+
+        background-color: black;
+
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        
+        transition: .3s ease;
+
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+
 
 }
