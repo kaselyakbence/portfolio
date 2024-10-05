@@ -3,10 +3,10 @@
 .project {
     @extend %custom-card;
 
-    width: 20vw;
-    height: 40vh;
+    min-height: 40vh;
 
     margin-top: 10vh;
+
 
     .project-image {
         margin-top: 3%;
@@ -36,6 +36,10 @@
             .project-button {
                 width: 100%;
             }
+        }
+
+        @include sm {
+            padding-bottom: 5%;
         }
     }
     

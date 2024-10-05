@@ -74,6 +74,14 @@
 
         z-index: 99;
 
+        @include md {
+            display: none;
+        }
+
+        @include lg {
+            display: none;
+        }
+
         span {
             height: 5px;
             width: 100%;
@@ -100,16 +108,14 @@
     }
 
     .ham-menu.active {
-
-        border: 1px solid red;
-        &:nth-last-child(1) {
+        :nth-last-child(1) {
             top: 50%;
             transform: translate(-50%,-50%) rotate(45deg);
         }
-        &:nth-last-child(2) {
+        :nth-last-child(2) {
             opacity: 0;
         }  
-        &:nth-last-child(3) {
+        :nth-last-child(3) {
             top: 50%;
             transform: translate(-50%,-50%) rotate(-45deg);
         }  
@@ -125,14 +131,23 @@
         top: 0;
         right: 0;
 
+        font-size: 1.4rem;
+
+        padding-top: 10vh;
+        padding-left: 10%;
+
+
+
         
-        transition: .3s ease;
+        transition: 1 ease;
 
         display: none;
 
         &.active {
             display: block;
         }
+
+
     }
 
 
