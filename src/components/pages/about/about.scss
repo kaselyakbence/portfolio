@@ -48,12 +48,17 @@
             li {
                margin: auto;
                margin-top: 4%;
+
+               @extend %secondary-button;
                
-
+               @include lg {
                width: 50%;
-
-               @extend %secondary-button;               
+               }
             }
+         }
+
+         @include sm {
+            width: 100%;
          }
      
         }
@@ -103,7 +108,9 @@
             }
            }
           
-       
+           @include sm {
+            display: none;
+           }
           }
 
    }
