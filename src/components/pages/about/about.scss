@@ -11,8 +11,15 @@
    display: flex;
    justify-content: space-evenly;
    align-items: center;
+
+   @include sm {
+      width: 94vw;
+      margin-left: 3vw;
+   }
    
    .card {
+
+      
          @extend %custom-card;
 
          margin-top: 20vh;
@@ -26,6 +33,10 @@
          height: 100%;
      
          padding: 1%;
+
+         @include sm {
+            width: 100%;
+         }
 
          h1{
             margin-top: 2%;
@@ -51,15 +62,9 @@
 
                @extend %secondary-button;
                
-               @include lg {
-               width: 50%;
-               }
             }
          }
 
-         @include sm {
-            width: 100%;
-         }
      
         }
       .card-right {
@@ -67,6 +72,12 @@
            height: 100%;
         
            padding: 1%;
+
+           @include sm {
+            width: 100%;
+
+            padding: 0;
+           }
 
            .vertical-item-row {
             margin: 0;
@@ -108,11 +119,26 @@
             }
            }
           
-           @include sm {
-            display: none;
-           }
           }
 
+   }
+
+   .mobile-card {
+      display: none;
+
+      padding-top: 5%;
+
+      @include sm {
+         display: block;
+      }
+
+
+   }
+
+   .desktop-card {
+      @include sm {
+         display: none;
+      }
    }
 
 }

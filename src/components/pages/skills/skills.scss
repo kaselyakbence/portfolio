@@ -5,6 +5,10 @@
     height: 100%;
     padding-top: 2%;
 
+    @include sm {
+        padding-top: 7%;
+    }
+
 
     .text {
         width: 80%;
