@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
 import "./about.scss";
 import TimelineContainer from "./timeline/TimelineConainer";
 
@@ -20,7 +21,10 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
   return (
     <div className="card mobile-card">
       {active ? (
-        <TimelineContainer mode={mode} />
+        <>
+          <IoMdClose className="close-icon" onClick={() => setActive(false)} />
+          <TimelineContainer mode={mode} />
+        </>
       ) : (
         <div className="card-left">
           <h1 className="about-header">Living in Berlin, Germany</h1>
