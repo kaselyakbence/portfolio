@@ -1,15 +1,16 @@
 # Description
 
-This  project contains my personal portfolio website aiming to introduce and prove my development skills. 
+This  project contains my personal portfolio website aiming to introduce and prove my development skills.
 
 Website:[ kaselyakbence.com](https://kaselyakbence.com/)
 
-# Technologies
+# Key Technologies
 
 The website was build usig the following technologies:
-- Typescript
-- React
-- SCSS
-- Git/Github
+
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [SCSS](https://sass-lang.com/)
+- [Git/Github](https://github.com/)
 
 ---

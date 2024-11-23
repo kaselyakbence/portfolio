@@ -65,6 +65,12 @@
             }
          }
 
+         .buttons {
+            .active {
+               color: lighten($color: $bittersweet, $amount: 1);
+            }
+         }
+
      
         }
       .card-right {

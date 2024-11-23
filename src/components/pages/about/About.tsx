@@ -62,11 +62,24 @@ const About = () => {
           </p>
           <div className="line" />
           <ul className="buttons">
-            <li onClick={() => setMode("professional")}>
+            <li
+              onClick={() => setMode("professional")}
+              className={mode == "professional" ? "active" : ""}
+            >
               Professional experience
             </li>
-            <li onClick={() => setMode("academic")}>Academic experience</li>
-            <li onClick={() => setMode("about")}>About me</li>
+            <li
+              onClick={() => setMode("academic")}
+              className={mode == "academic" ? "active" : ""}
+            >
+              Academic experience
+            </li>
+            <li
+              onClick={() => setMode("about")}
+              className={mode == "about" ? "active" : ""}
+            >
+              About me
+            </li>
           </ul>
         </div>
         <TimelineContainer mode={mode} />
