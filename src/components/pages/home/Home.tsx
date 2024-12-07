@@ -8,7 +8,7 @@ const Home = () => {
 
         const alink = document.createElement("a");
         alink.href = fileURL;
-        alink.download = "cv.pdf";
+        alink.download = "cv";
         alink.click();
       });
     });
