@@ -1,18 +1,18 @@
 import "./home.scss";
 
 const Home = () => {
-  const downloadCv = () => {
-    fetch("cv.pdf").then((response) => {
-      response.blob().then((blob) => {
-        const fileURL = window.URL.createObjectURL(blob);
+  // const downloadCv = () => {
+  //   fetch("cv.pdf").then((response) => {
+  //     response.blob().then((blob) => {
+  //       const fileURL = window.URL.createObjectURL(blob);
 
-        const alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = "cv";
-        alink.click();
-      });
-    });
-  };
+  //       const alink = document.createElement("a");
+  //       alink.href = fileURL;
+  //       alink.download = "cv.pdf";
+  //       alink.click();
+  //     });
+  //   });
+  // };
 
   return (
     <div className="welcome-page">
@@ -25,7 +25,11 @@ const Home = () => {
             <p>My name is Bence Kaselyák</p>
             <p>Web Developer & Software Tester</p>
             <div className="resume">
-              <button onClick={downloadCv}>Check out my resume</button>
+              <button /*onClick={downloadCv}*/>
+                <a href="cv.pdf" download="cv.pdf">
+                  Check out my resume
+                </a>
+              </button>
             </div>
           </div>
           <div className="right-line" />
