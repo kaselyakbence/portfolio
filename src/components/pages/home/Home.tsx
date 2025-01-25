@@ -1,19 +1,6 @@
 import "./home.scss";
 
 const Home = () => {
-  // const downloadCv = () => {
-  //   fetch("cv.pdf").then((response) => {
-  //     response.blob().then((blob) => {
-  //       const fileURL = window.URL.createObjectURL(blob);
-
-  //       const alink = document.createElement("a");
-  //       alink.href = fileURL;
-  //       alink.download = "cv.pdf";
-  //       alink.click();
-  //     });
-  //   });
-  // };
-
   return (
     <div className="welcome-page">
       <div className="text">
@@ -25,7 +12,7 @@ const Home = () => {
             <p>My name is Bence Kaselyák</p>
             <p>Web Developer & Software Tester</p>
             <div className="resume">
-              <button /*onClick={downloadCv}*/>
+              <button>
                 <a href="cv.pdf" download="cv.pdf">
                   Check out my resume
                 </a>
