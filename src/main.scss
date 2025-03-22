@@ -1,9 +1,12 @@
+//Import font
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 //Main colors
 
 $black: #000000;
 $white: #ffffff;
 $violet: #0e0533;
-$bittersweet:#FA7E61;
+$bittersweet: #fa7e61;
 
 //Custom stuff
 
@@ -11,150 +14,137 @@ $bittersweet:#FA7E61;
 
 // Small devices
 @mixin sm {
-    @media (max-width: 768px) {
-        @content;
-    }
- }
- 
- // Medium devices
- @mixin md {
-    @media (min-width:768px) and (max-width:1200px) {
-        @content;
-    }
- }
- 
- // Large devices
- @mixin lg {
-    @media (min-width:1200px) { 
-        @content; 
-    }
- }
- 
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 
+// Medium devices
+@mixin md {
+  @media (min-width: 768px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
 
 //Custom border through the page
 %custom-card {
-    border: 3px solid black;
-    //border-radius: 25px;
-    background-color: darken($color: $violet, $amount: 0.75);
+  border: 3px solid black;
+  //border-radius: 25px;
+  background-color: darken($color: $violet, $amount: 0.75);
 }
 
 //Primary button
 %primary-button {
-    padding: 3px;
+  padding: 3px;
 
-    color: $bittersweet;
-    border: 1px solid $bittersweet;
+  color: $bittersweet;
+  border: 1px solid $bittersweet;
 
-    background-color: rgba(255,0,0,0.1);
+  background-color: rgba(255, 0, 0, 0.1);
 
-    &:hover {
-        color: lighten($color: $bittersweet, $amount: 10);
-        border: 1px solid lighten($color: $bittersweet, $amount: 10);
-    }
+  &:hover {
+    color: lighten($color: $bittersweet, $amount: 10);
+    border: 1px solid lighten($color: $bittersweet, $amount: 10);
+  }
 }
 
 //Primary button
 %secondary-button {
-    padding: 3px;
+  padding: 3px;
 
-    color: $white;
-    border: 1px solid $white;
+  color: $white;
+  border: 1px solid $white;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background-color: transparent;
+  background-color: transparent;
 
-    &:hover {
-        color: darken($color: $white, $amount: 10);
-        border: 1px solid lighten($color: $white, $amount: 10);
-    }
+  &:hover {
+    color: darken($color: $white, $amount: 10);
+    border: 1px solid lighten($color: $white, $amount: 10);
+  }
 }
 
-
 %disable-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 //To make something unselectable
 %no-select {
-        -webkit-touch-callout: none; /* iOS Safari */
-          -webkit-user-select: none; /* Safari */
-           -khtml-user-select: none; /* Konqueror HTML */
-             -moz-user-select: none; /* Old versions of Firefox */
-              -ms-user-select: none; /* Internet Explorer/Edge */
-                  user-select: none; /* Non-prefixed version, currently
-                                        supported by Chrome, Edge, Opera and Firefox */   
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
 }
-
-
-
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 
-    position: relative;
+  position: relative;
 
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
 }
- 
+
 body {
+  color: $white;
+  background-color: $violet;
+
+  overflow: hidden;
+
+  // Font
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+
+  .button {
+    background-color: inherit;
+    border: 1px solid $white;
+    border-radius: 25px;
+    padding: 10px;
 
     color: $white;
-    background-color: $violet;
+    font-size: 1rem;
 
-    overflow: hidden;
-
-    // scroll-snap-type: both mandatory;
-    // overflow-y: scroll;
-
-
-    .button {
-        background-color: inherit;
-        border: 1px solid $white;
-        border-radius: 25px;
-        padding: 10px;
-
-        color: $white;
-        font-size: 1rem;
-
-        &:hover {
-            color: $bittersweet;
-        }
+    &:hover {
+      color: $bittersweet;
     }
+  }
 
+  .video {
+    height: 440vh;
+    width: 100vw;
+    position: absolute;
 
+    z-index: -3;
 
-    .video {
-        height: 440vh;
-        width: 100vw;
-        position: absolute;
-    
-        z-index: -3;
-    
-        opacity: 0.6;
-    
-    
-        video {
-            height:  100%;
-            width: 100vw;
-    
-            overflow-x: hidden;
-    
-            object-fit: cover;
-        }
+    opacity: 0.6;
+
+    video {
+      height: 100%;
+      width: 100vw;
+
+      overflow-x: hidden;
+
+      object-fit: cover;
     }
-
+  }
 }
-

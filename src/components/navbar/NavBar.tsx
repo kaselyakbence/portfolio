@@ -21,14 +21,14 @@ const NavBar = (navbarState: NavBarState) => {
           target="_blank"
           className="nav-link"
         >
-          <FaLinkedin color="white" className="icon" />
+          <FaLinkedin className="icon" />
         </a>
         <a
           href="https://github.com/kaselyakbence"
           target="_blank"
           className="nav-link"
         >
-          <FaGithub color="white" className="icon" />
+          <FaGithub className="icon" />
         </a>
       </div>
       <div className="links">
