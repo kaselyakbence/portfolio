@@ -3,7 +3,11 @@ import { IoMdClose } from "react-icons/io";
 import "./about.scss";
 import TimelineContainer from "./timeline/TimelineConainer";
 
-export type AboutMode = "professional" | "academic" | "about";
+export type AboutMode =
+  | "professional"
+  | "academic"
+  | "about"
+  | "certifications";
 
 interface MobileLayoutProps {
   mode: AboutMode;
@@ -39,6 +43,7 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
               Professional experience
             </li>
             <li onClick={() => activate("academic")}>Academic experience</li>
+            <li onClick={() => activate("certifications")}>Certifications</li>
             <li onClick={() => activate("about")}>About me</li>
           </ul>
         </div>
@@ -73,6 +78,12 @@ const About = () => {
               className={mode == "academic" ? "active" : ""}
             >
               Academic experience
+            </li>
+            <li
+              onClick={() => setMode("certifications")}
+              className={mode == "certifications" ? "active" : ""}
+            >
+              Certifications
             </li>
             <li
               onClick={() => setMode("about")}

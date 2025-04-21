@@ -1,4 +1,4 @@
-import { CustomTimelineItemProps } from "./CustomTimelineItem";
+import { CustomTimelineItemProps } from "./subcomponents/CustomTimelineItem";
 import Tp from "../../../../assets/tp-main-logo-svg.svg";
 import Testlio from "../../../../assets/testlio-logo.png";
 import Mohanet from "../../../../assets/logo_mohanet.png";

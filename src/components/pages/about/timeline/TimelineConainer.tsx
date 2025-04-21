@@ -1,6 +1,10 @@
 import { AboutMode } from "../About";
 import { educationTimelineItems, professionalItems } from "./data";
-import CustomTimeline from "./CustomTimeline";
+import CustomTimeline from "./subcomponents/CustomTimeline";
+import "./timelinecontainer.scss";
+
+import istqb_foundational from "../../../../assets/certs/istqb-ctfl.png";
+import CertItem from "./subcomponents/CertItem";
 
 interface AboutButtonsProps {
   mode: AboutMode;
@@ -36,6 +40,22 @@ const TimelineContainer = ({ mode }: AboutButtonsProps) => {
             my own startup and create something truly unique, that helps others.
           </p>
         </div>
+      )}
+      {mode === "certifications" && (
+        <ul className="cert-list">
+          <a
+            className="link"
+            href="https://atsqa.org/certified-testers/profile/41704efe023244fc9cff4609724a5013"
+            target="_blank"
+          >
+            <CertItem
+              name="Certified Tester Foundation Level"
+              date="March 2025"
+              logo={istqb_foundational}
+              org="ASTQB - ISTQB in the U.S."
+            />
+          </a>
+        </ul>
       )}
     </div>
   );

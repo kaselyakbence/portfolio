@@ -1,0 +1,42 @@
+@import "../../../../../main.scss";
+
+.cert-item {
+  width: 90%;
+  background-color: $white;
+  color: $black;
+
+  margin-left: 5%;
+  padding: 5px;
+
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px $black;
+}
+
+.cert-item-header {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.cert-name {
+  color: $bittersweet;
+  font-weight: bold;
+
+  font-size: 1.2rem;
+}
+
+.cert-org {
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.cert-date {
+  font-style: italic;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
