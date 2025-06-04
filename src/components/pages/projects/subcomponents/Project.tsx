@@ -1,16 +1,16 @@
 import "./project.scss";
-import background from "../../../../assets/projects/portfolio.png";
 
 interface ProjectProps {
   name: string;
   githubLink: string;
   demoLink: string;
+  imgSrc?: string;
 }
 
-const Project = ({ name, githubLink, demoLink }: ProjectProps) => {
+const Project = ({ name, githubLink, demoLink, imgSrc }: ProjectProps) => {
   return (
     <div className="project">
-      <img src={background} alt="" className="project-image" />
+      <img src={imgSrc} alt="" className="project-image" />
       <p>{name}</p>
       <div className="buttons">
         <a href={githubLink} target="_blank">
