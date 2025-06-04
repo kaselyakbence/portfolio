@@ -1,46 +1,55 @@
 @import "../../../../main.scss";
 
 .project {
-    @extend %custom-card;
+  @extend %custom-card;
 
-    min-height: 40vh;
+  min-height: 40vh;
 
+  margin-top: 10vh;
+
+  @include sm {
     margin-top: 10vh;
+    min-height: 25vh;
+  }
 
+  @include md {
+    margin-right: 5vh;
+  }
+  @include lg {
+    margin-right: 5vh;
+  }
 
-    .project-image {
-        margin-top: 3%;
-        margin-left: 4%;
+  .project-image {
+    margin-top: 3%;
+    margin-left: 4%;
 
-        width: 92%;
-        
+    width: 92%;
 
-        @extend %custom-card;
-    }
+    @extend %custom-card;
+  }
 
-    p {
-        margin-top: 2%;
-        font-size: 1.8rem;
-        text-align: center;
-        margin-bottom: 8%;
-    }
+  p {
+    margin-top: 2%;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 8%;
+  }
 
-    .buttons {
-        display: flex;
+  .buttons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+
+    a {
+      width: 35%;
+      .project-button {
         width: 100%;
-        align-items: center;
-        justify-content: space-evenly;
-
-        a {
-            width: 35%;
-            .project-button {
-                width: 100%;
-            }
-        }
-
-        @include sm {
-            padding-bottom: 5%;
-        }
+      }
     }
-    
+
+    @include sm {
+      padding-bottom: 5%;
+    }
+  }
 }
