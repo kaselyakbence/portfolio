@@ -6,9 +6,9 @@ import "react-multi-carousel/lib/styles.css";
 const programmingSkills = [
   { name: "Typescript", number: 4 },
   { name: "Javascript", number: 4 },
+  { name: "AWS", number: 3, isHalf: false },
+  { name: "Git", number: 3, isHalf: false },
   { name: "Python", number: 3 },
-  { name: "Git", number: 3, isHalf: true },
-  { name: "PHP", number: 2, isHalf: true },
 ];
 
 const frontendSkills = [
