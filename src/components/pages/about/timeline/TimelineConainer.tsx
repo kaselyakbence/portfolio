@@ -4,6 +4,7 @@ import CustomTimeline from "./subcomponents/CustomTimeline";
 import "./timelinecontainer.scss";
 
 import istqb_foundational from "../../../../assets/certs/istqb-ctfl.png";
+import asw_cp from "../../../../assets/certs/aws-cp.png";
 import CertItem from "./subcomponents/CertItem";
 
 interface AboutButtonsProps {
@@ -43,18 +44,20 @@ const TimelineContainer = ({ mode }: AboutButtonsProps) => {
       )}
       {mode === "certifications" && (
         <ul className="cert-list">
-          <a
-            className="link"
-            href="https://atsqa.org/certified-testers/profile/41704efe023244fc9cff4609724a5013"
-            target="_blank"
-          >
-            <CertItem
-              name="Certified Tester Foundation Level"
-              date="March 2025"
-              logo={istqb_foundational}
-              org="ASTQB - ISTQB in the U.S."
-            />
-          </a>
+          <CertItem
+            name="Certified Cloud Practitioner"
+            date="May 2025"
+            logo={asw_cp}
+            org="Amazon Web Services"
+            link="https://www.credly.com/badges/f0cdd85f-dc39-4e57-9315-0a22467e1965/public_url"
+          />
+          <CertItem
+            name="Certified Tester Foundation Level"
+            date="March 2025"
+            logo={istqb_foundational}
+            org="ASTQB - ISTQB in the U.S."
+            link="https://atsqa.org/certified-testers/profile/41704efe023244fc9cff4609724a5013"
+          />
         </ul>
       )}
     </div>
