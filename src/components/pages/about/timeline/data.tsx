@@ -38,14 +38,14 @@ export const professionalItems: CustomTimelineItemProps[] = [
 
 export const educationTimelineItems: CustomTimelineItemProps[] = [
   {
-    date: "09/2023 - 02/2024",
+    date: "09/2023 - 02/2024 | Erasmus+",
     title: "Humboldt Universität zu Berlin",
     subtitle: "Erasmus+ Semester abroad",
     logo: Humboldt,
     desc: "I came to Humboldt for an Erasmus+ semester. I mainly learned about the culture of Germany and especially Berlin, while bettering my German language skills, as well as honing my software developer skills.",
   },
   {
-    date: "09/2022 - 09/2023  | Unfinished",
+    date: "09/2022 - 09/2023  | Candidate",
     title: "University of Copenhagen",
     subtitle: "Computer Science MSc.",
     logo: UCPH,
