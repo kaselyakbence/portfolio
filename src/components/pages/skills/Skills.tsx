@@ -1,7 +1,13 @@
 import "./skills.scss";
 import Skillgroup from "./subcomponents/Skillgroup";
-import Carousel from "react-multi-carousel";
+import CarouselImport from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
+// Some bundlers' CJS interop unwraps react-multi-carousel's nested
+// `module.exports = require(...)` re-export incorrectly, yielding the whole
+// module object instead of the component itself - fall back to `.default` if so.
+const Carousel = ((CarouselImport as unknown as { default?: typeof CarouselImport })
+  .default ?? CarouselImport) as typeof CarouselImport;
 
 const programmingSkills = [
   { name: "Typescript", number: 4 },

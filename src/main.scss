@@ -1,3 +1,5 @@
+@use "sass:color";
+
 //Import font
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -37,7 +39,7 @@ $bittersweet: #fa7e61;
 %custom-card {
   border: 3px solid black;
   //border-radius: 25px;
-  background-color: darken($color: $violet, $amount: 0.75);
+  background-color: color.adjust($violet, $lightness: -0.75%);
 }
 
 //Primary button
@@ -50,8 +52,8 @@ $bittersweet: #fa7e61;
   background-color: rgba(255, 0, 0, 0.1);
 
   &:hover {
-    color: lighten($color: $bittersweet, $amount: 10);
-    border: 1px solid lighten($color: $bittersweet, $amount: 10);
+    color: color.adjust($bittersweet, $lightness: 10%);
+    border: 1px solid color.adjust($bittersweet, $lightness: 10%);
   }
 }
 
@@ -69,8 +71,8 @@ $bittersweet: #fa7e61;
   background-color: transparent;
 
   &:hover {
-    color: darken($color: $white, $amount: 10);
-    border: 1px solid lighten($color: $white, $amount: 10);
+    color: color.adjust($white, $lightness: -10%);
+    border: 1px solid color.adjust($white, $lightness: 10%);
   }
 }
 

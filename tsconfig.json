@@ -14,6 +14,13 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Workaround: react-chrono's package.json "types" field points to a
+       non-existent dist/index.d.ts; the real declarations ship as
+       dist/react-chrono.d.ts */
+    "paths": {
+      "react-chrono": ["./node_modules/react-chrono/dist/react-chrono.d.ts"]
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
