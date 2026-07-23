@@ -28,7 +28,7 @@ const backendSkills = [
 const testingSkills = [
   { name: "Manual", number: 4, isHalf: true },
   { name: "Cypress", number: 2, isHalf: true },
-  { name: "Jest", number: 3, isHalf: true },
+  { name: "Jest", number: 2, isHalf: true },
 ];
 
 const languageSkills = [
