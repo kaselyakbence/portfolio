@@ -19,6 +19,8 @@ const Navbar = (navbarState: NavbarState) => {
         <a
           href="https://www.linkedin.com/in/bencekaselyak/"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
           className="nav-link"
         >
           <FaLinkedin className="icon" />
@@ -26,6 +28,8 @@ const Navbar = (navbarState: NavbarState) => {
         <a
           href="https://github.com/kaselyakbence"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
           className="nav-link"
         >
           <FaGithub className="icon" />
@@ -33,14 +37,17 @@ const Navbar = (navbarState: NavbarState) => {
       </div>
       <div className="links">
         <>
-          <div
+          <button
+            type="button"
             className={isOpen ? "ham-menu active" : "ham-menu"}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
             onClick={() => setIsOpen(!isOpen)}
           >
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
           {(Object.keys(navbarState) as (keyof NavbarState)[]).map((key) => (
             <NavbarItem
               id={key}

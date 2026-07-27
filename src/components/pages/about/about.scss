@@ -56,7 +56,14 @@
           margin: auto;
           margin-top: 4%;
 
-          @extend %secondary-button;
+          list-style: none;
+
+          button {
+            @extend %reset-button;
+            @extend %secondary-button;
+
+            width: 100%;
+          }
         }
       }
 
@@ -105,9 +112,15 @@
     }
 
     .close-icon {
+      @extend %reset-button;
+
       position: absolute;
       left: 5px;
       top: 5px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       width: 25px;
       height: 25px;

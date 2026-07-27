@@ -10,16 +10,16 @@
     display: flex;
     justify-content: space-between;
     .item-header-left {
-      h1 {
+      h3 {
         overflow: hidden;
-        color: $bittersweet;
+        color: $bittersweet-on-light;
 
         font-size: 1.2rem;
 
         margin-bottom: 5px;
       }
 
-      h2 {
+      h4 {
         overflow: hidden;
         font-size: 1.1rem;
         margin-bottom: 2px;

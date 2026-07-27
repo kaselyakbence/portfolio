@@ -2,6 +2,8 @@
 @use "../../../main.scss" as *;
 
 .navbaritem {
+  @extend %reset-button;
+
   &:hover {
     color: $bittersweet;
     font-weight: bold;
@@ -17,6 +19,8 @@
 }
 
 .sidebaritem {
+  @extend %reset-button;
+
   padding: 5px;
 
   &:hover {

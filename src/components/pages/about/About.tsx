@@ -23,7 +23,14 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
     <div className="card mobile-card">
       {active ? (
         <>
-          <IoMdClose className="close-icon" onClick={() => setActive(false)} />
+          <button
+            type="button"
+            className="close-icon"
+            aria-label="Close"
+            onClick={() => setActive(false)}
+          >
+            <IoMdClose />
+          </button>
           <TimelineContainer mode={mode} />
         </>
       ) : (
@@ -36,12 +43,26 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
           </p>
           <div className="line" />
           <ul className="buttons">
-            <li onClick={() => activate("professional")}>
-              Professional experience
+            <li>
+              <button type="button" onClick={() => activate("professional")}>
+                Professional experience
+              </button>
             </li>
-            <li onClick={() => activate("academic")}>Academic experience</li>
-            <li onClick={() => activate("certifications")}>Certifications</li>
-            <li onClick={() => activate("about")}>About me</li>
+            <li>
+              <button type="button" onClick={() => activate("academic")}>
+                Academic experience
+              </button>
+            </li>
+            <li>
+              <button type="button" onClick={() => activate("certifications")}>
+                Certifications
+              </button>
+            </li>
+            <li>
+              <button type="button" onClick={() => activate("about")}>
+                About me
+              </button>
+            </li>
           </ul>
         </div>
       )}
@@ -64,29 +85,45 @@ const About = () => {
           </p>
           <div className="line" />
           <ul className="buttons">
-            <li
-              onClick={() => setMode("professional")}
-              className={mode == "professional" ? "active" : ""}
-            >
-              Professional experience
+            <li>
+              <button
+                type="button"
+                onClick={() => setMode("professional")}
+                className={mode == "professional" ? "active" : ""}
+                aria-pressed={mode == "professional"}
+              >
+                Professional experience
+              </button>
             </li>
-            <li
-              onClick={() => setMode("academic")}
-              className={mode == "academic" ? "active" : ""}
-            >
-              Academic experience
+            <li>
+              <button
+                type="button"
+                onClick={() => setMode("academic")}
+                className={mode == "academic" ? "active" : ""}
+                aria-pressed={mode == "academic"}
+              >
+                Academic experience
+              </button>
             </li>
-            <li
-              onClick={() => setMode("certifications")}
-              className={mode == "certifications" ? "active" : ""}
-            >
-              Certifications
+            <li>
+              <button
+                type="button"
+                onClick={() => setMode("certifications")}
+                className={mode == "certifications" ? "active" : ""}
+                aria-pressed={mode == "certifications"}
+              >
+                Certifications
+              </button>
             </li>
-            <li
-              onClick={() => setMode("about")}
-              className={mode == "about" ? "active" : ""}
-            >
-              About me
+            <li>
+              <button
+                type="button"
+                onClick={() => setMode("about")}
+                className={mode == "about" ? "active" : ""}
+                aria-pressed={mode == "about"}
+              >
+                About me
+              </button>
             </li>
           </ul>
         </div>

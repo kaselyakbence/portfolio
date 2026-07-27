@@ -19,12 +19,18 @@ const CustomTimelineItem = ({
     <div className="custom-item">
       <div className="item-header">
         <div className="item-header-left">
-          <h1>{title}</h1>
-          <h2>{subtitle}</h2>
+          <h3>{title}</h3>
+          <h4>{subtitle}</h4>
           <p className="item-date">{date}</p>
         </div>
         <div className="item-header-right">
-          <img src={logo} alt="logo" width={"100px"} />
+          <img
+            src={logo}
+            alt={`${title} logo`}
+            width={"100px"}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
       {desc && <p className="item-description">{desc}</p>}

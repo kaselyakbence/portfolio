@@ -11,8 +11,10 @@ interface NavbarItemProps {
 
 const NavbarItem = ({ id, active, mode, onClick }: NavbarItemProps) => {
   return (
-    <p
+    <button
+      type="button"
       className={active ? `${mode} active` : mode}
+      aria-current={active ? "page" : undefined}
       onClick={() => {
         scroller.scrollTo(id, {
           duration: 1000,
@@ -24,7 +26,7 @@ const NavbarItem = ({ id, active, mode, onClick }: NavbarItemProps) => {
       }}
     >
       {id}
-    </p>
+    </button>
   );
 };
 

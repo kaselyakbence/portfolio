@@ -1,8 +1,8 @@
 import "./projects.scss";
 import Project from "./subcomponents/Project";
 
-import portfolio from "../../../assets/projects/portfolio.png";
-import adk from "../../../assets/projects/adk.png";
+import portfolio from "../../../assets/projects/portfolio.webp";
+import adk from "../../../assets/projects/adk.webp";
 
 const Projects = () => {
   return (

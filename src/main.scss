@@ -10,6 +10,11 @@ $white: #ffffff;
 $violet: #0e0533;
 $bittersweet: #fa7e61;
 
+//Darker variant of $bittersweet - use for bold/large text on white
+//(%light-card) backgrounds, where $bittersweet itself falls short of
+//WCAG AA contrast (2.55:1 vs white; this hits ~3.65:1)
+$bittersweet-on-light: #f84117;
+
 //Stacking order, back to front
 $z-background: -3;
 $z-content: 1;
@@ -39,6 +44,20 @@ $z-menu-toggle: 99;
   @media (min-width: 1200px) {
     @content;
   }
+}
+
+//Strips default button chrome so it can be restyled to look like plain text/other elements
+//NOTE: keep this defined before any %*-button placeholders, since @extend
+//output order follows definition order (not @extend call order) - a
+//placeholder defined later here would win the cascade over one defined
+//earlier, regardless of the order they're @extended in.
+%reset-button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
 }
 
 //Custom border through the page
@@ -133,6 +152,8 @@ body {
   font-style: normal;
 
   .button {
+    display: inline-block;
+
     background-color: inherit;
     border: 1px solid $white;
     border-radius: 25px;
@@ -140,6 +161,8 @@ body {
 
     color: $white;
     font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
 
     &:hover {
       color: $bittersweet;

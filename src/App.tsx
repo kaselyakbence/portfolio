@@ -13,7 +13,7 @@ const App = () => {
     <>
       <Navbar {...navbarState} />
       <div className="video">
-        <video autoPlay muted loop>
+        <video autoPlay muted loop poster="/background-poster.webp">
           <source src="/background.mp4" type="video/mp4" />
         </video>
       </div>
