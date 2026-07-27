@@ -1,31 +1,87 @@
 @use "../../../main.scss" as *;
 
 .skills-page {
-    width: 100%;
-    height: 100%;
-    padding-top: 2%;
+  width: 100%;
+  height: 100%;
+  padding-top: 2%;
 
-    @include sm {
-        padding-top: 7%;
+  @include sm {
+    padding-top: 7%;
+  }
+
+  .text {
+    width: 80%;
+    margin: auto;
+    margin-top: 10vh;
+
+    p {
+      margin-top: 1%;
+    }
+  }
+
+  .skills {
+    @extend %no-select;
+
+    position: relative;
+
+    margin: auto;
+    margin-top: 5%;
+    width: 80vw;
+
+    &__viewport {
+      overflow: hidden;
     }
 
-
-    .text {
-        width: 80%;
-        margin: auto;
-        margin-top: 10vh;
-
-        p{
-            margin-top: 1%;
-        }
+    &__container {
+      display: flex;
     }
 
-    .skills {
-        @extend %no-select;
+    &__slide {
+      flex: 0 0 100%;
+      min-width: 0;
 
-        margin: auto;
-        margin-top: 5%;
-        width: 80vw;
+      @media (min-width: 500px) {
+        flex-basis: 50%;
+      }
 
+      @media (min-width: 800px) {
+        flex-basis: 33.3333%;
+      }
+
+      @media (min-width: 1300px) {
+        flex-basis: 25%;
+      }
     }
+
+    &__arrow {
+      @extend %secondary-button;
+
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+
+      &--prev {
+        left: -20px;
+      }
+
+      &--next {
+        right: -20px;
+      }
+
+      @media (max-width: 799px) {
+        display: none;
+      }
+    }
+  }
 }

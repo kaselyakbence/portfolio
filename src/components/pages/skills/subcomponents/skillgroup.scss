@@ -1,18 +1,17 @@
 @use "../../../../main.scss" as *;
 
 .skill-group {
-    @extend %custom-card;
+  @extend %custom-card;
 
-    margin: 0 5%;
-    height: 50vh;
+  margin: 0 5%;
+  height: 50vh;
 
-    .skill-name {
-        height: 20%;
+  .skill-name {
+    height: 20%;
 
-        h2 {
-        margin-left: 5%;
-        margin-top: 5%;
-        }
+    h2 {
+      margin-left: 5%;
+      margin-top: 5%;
     }
-    
+  }
 }

@@ -4,10 +4,7 @@ import "./about.scss";
 import TimelineContainer from "./timeline/TimelineConainer";
 
 export type AboutMode =
-  | "professional"
-  | "academic"
-  | "about"
-  | "certifications";
+  "professional" | "academic" | "about" | "certifications";
 
 interface MobileLayoutProps {
   mode: AboutMode;

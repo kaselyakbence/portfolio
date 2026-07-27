@@ -42,6 +42,15 @@ $bittersweet: #fa7e61;
   background-color: color.adjust($violet, $lightness: -0.75%);
 }
 
+//White-background card, for content that needs higher contrast
+%light-card {
+  border: 2px solid $violet;
+  border-radius: 8px;
+  background-color: $white;
+  color: $black;
+  box-shadow: 0 4px 14px rgba($black, 0.35);
+}
+
 //Primary button
 %primary-button {
   padding: 3px;
