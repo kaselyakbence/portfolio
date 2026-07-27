@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import "./about.scss";
-import TimelineContainer from "./timeline/TimelineConainer";
+import TimelineContainer from "./timeline/TimelineContainer";
 
 export type AboutMode =
   "professional" | "academic" | "about" | "certifications";

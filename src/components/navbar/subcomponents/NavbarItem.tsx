@@ -1,9 +1,9 @@
 import "./navbaritem.scss";
 import { scroller } from "react-scroll";
-import { NavBarState } from "../NavBar";
+import { NavbarState } from "../Navbar";
 
 interface NavbarItemProps {
-  id: keyof NavBarState;
+  id: keyof NavbarState;
   active: boolean;
   mode: "navbaritem" | "sidebaritem";
   onClick?: () => void;

@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaCarouselType } from "embla-carousel";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./skills.scss";
-import Skillgroup from "./subcomponents/Skillgroup";
+import SkillGroup from "./subcomponents/SkillGroup";
 
 const programmingSkills = [
   { name: "Typescript", number: 4 },
@@ -89,7 +89,7 @@ const Skills = () => {
           <div className="skills__container">
             {skillGroups.map(({ name, skills }) => (
               <div className="skills__slide" key={name}>
-                <Skillgroup name={name} skills={skills} />
+                <SkillGroup name={name} skills={skills} />
               </div>
             ))}
           </div>

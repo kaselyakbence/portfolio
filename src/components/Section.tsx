@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import "./section.scss";
-import { NavBarState } from "./navbar/NavBar";
+import { NavbarState } from "./navbar/Navbar";
 
 interface SectionProps {
-  id: keyof NavBarState;
+  id: keyof NavbarState;
   children: React.ReactNode;
-  editNavbarState: (key: keyof NavBarState, value: boolean) => void;
+  editNavbarState: (key: keyof NavbarState, value: boolean) => void;
 }
 
 const Section = ({ id, children, editNavbarState }: SectionProps) => {

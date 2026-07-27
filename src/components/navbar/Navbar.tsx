@@ -3,14 +3,14 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import NavbarItem from "./subcomponents/NavbarItem";
 import { useState } from "react";
 
-export interface NavBarState {
+export interface NavbarState {
   home: boolean;
   about: boolean;
   skills: boolean;
   projects: boolean;
 }
 
-const NavBar = (navbarState: NavBarState) => {
+const Navbar = (navbarState: NavbarState) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -41,7 +41,7 @@ const NavBar = (navbarState: NavBarState) => {
             <span></span>
             <span></span>
           </div>
-          {(Object.keys(navbarState) as (keyof NavBarState)[]).map((key) => (
+          {(Object.keys(navbarState) as (keyof NavbarState)[]).map((key) => (
             <NavbarItem
               id={key}
               key={key}
@@ -53,7 +53,7 @@ const NavBar = (navbarState: NavBarState) => {
       </div>
 
       <div className={isOpen ? "sidemenu active" : "sidemenu"}>
-        {(Object.keys(navbarState) as (keyof NavBarState)[]).map((key) => (
+        {(Object.keys(navbarState) as (keyof NavbarState)[]).map((key) => (
           <NavbarItem
             id={key}
             key={key}
@@ -67,4 +67,4 @@ const NavBar = (navbarState: NavBarState) => {
   );
 };
 
-export default NavBar;
+export default Navbar;

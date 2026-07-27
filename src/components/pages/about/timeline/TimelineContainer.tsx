@@ -7,11 +7,11 @@ import istqb_foundational from "../../../../assets/certs/istqb-ctfl.png";
 import asw_cp from "../../../../assets/certs/aws-cp.png";
 import CertItem from "./subcomponents/CertItem";
 
-interface AboutButtonsProps {
+interface TimelineContainerProps {
   mode: AboutMode;
 }
 
-const TimelineContainer = ({ mode }: AboutButtonsProps) => {
+const TimelineContainer = ({ mode }: TimelineContainerProps) => {
   return (
     <div className="card-right">
       {mode === "professional" && <CustomTimeline items={professionalItems} />}
