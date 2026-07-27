@@ -1,6 +1,8 @@
+@use "../main.scss" as *;
+
 .app-section {
   height: 105vh;
   width: 100%;
 
-  z-index: 1;
+  z-index: $z-content;
 }

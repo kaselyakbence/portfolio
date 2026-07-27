@@ -10,6 +10,12 @@ $white: #ffffff;
 $violet: #0e0533;
 $bittersweet: #fa7e61;
 
+//Stacking order, back to front
+$z-background: -3;
+$z-content: 1;
+$z-overlay: 9;
+$z-menu-toggle: 99;
+
 //Custom stuff
 
 //Media queries
@@ -37,7 +43,7 @@ $bittersweet: #fa7e61;
 
 //Custom border through the page
 %custom-card {
-  border: 3px solid black;
+  border: 3px solid $black;
   //border-radius: 25px;
   background-color: color.adjust($violet, $lightness: -0.75%);
 }
@@ -145,7 +151,7 @@ body {
     width: 100vw;
     position: absolute;
 
-    z-index: -3;
+    z-index: $z-background;
 
     opacity: 0.6;
 

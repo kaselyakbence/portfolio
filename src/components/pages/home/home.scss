@@ -77,27 +77,6 @@
         }
       }
 
-      .resume {
-        display: flex;
-        justify-content: center;
-
-        button {
-          @extend %primary-button;
-          margin-top: 20px;
-
-          @include sm {
-            width: 60%;
-            font-size: 1rem;
-            margin-top: 10%;
-          }
-
-          a {
-            color: $bittersweet;
-            text-decoration: none;
-          }
-        }
-      }
-
       .right-line {
         width: 5px;
         margin-top: auto;
@@ -120,6 +99,27 @@
 
       @include sm {
         display: none;
+      }
+    }
+  }
+
+  .resume {
+    display: flex;
+    justify-content: center;
+
+    button {
+      @extend %primary-button;
+      margin-top: 20px;
+
+      @include sm {
+        width: 60%;
+        font-size: 1rem;
+        margin-top: 10%;
+      }
+
+      a {
+        color: $bittersweet;
+        text-decoration: none;
       }
     }
   }

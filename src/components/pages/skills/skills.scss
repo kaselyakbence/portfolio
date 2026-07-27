@@ -1,5 +1,11 @@
 @use "../../../main.scss" as *;
 
+// Custom breakpoints matching the carousel's item-count tiers - kept
+// distinct from the sm/md/lg mixins so the item counts below don't shift.
+$carousel-bp-two-items: 500px;
+$carousel-bp-three-items: 800px;
+$carousel-bp-four-items: 1300px;
+
 .skills-page {
   width: 100%;
   height: 100%;
@@ -40,15 +46,15 @@
       flex: 0 0 100%;
       min-width: 0;
 
-      @media (min-width: 500px) {
+      @media (min-width: $carousel-bp-two-items) {
         flex-basis: 50%;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: $carousel-bp-three-items) {
         flex-basis: 33.3333%;
       }
 
-      @media (min-width: 1300px) {
+      @media (min-width: $carousel-bp-four-items) {
         flex-basis: 25%;
       }
     }
@@ -79,7 +85,7 @@
         right: -20px;
       }
 
-      @media (max-width: 799px) {
+      @media (max-width: $carousel-bp-three-items - 1) {
         display: none;
       }
     }
