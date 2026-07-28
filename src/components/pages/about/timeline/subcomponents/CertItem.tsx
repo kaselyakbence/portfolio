@@ -9,20 +9,26 @@ interface CertItemProps {
 }
 const CertItem = ({ name, org, date, logo, link }: CertItemProps) => {
   return (
-    <a className="link" href={link} target="_blank">
-      <li className="cert-item">
+    <li className="cert-item">
+      <a className="link" href={link} target="_blank" rel="noopener noreferrer">
         <div className="cert-item-header">
           <div className="left">
-            <h1 className="cert-name">{name}</h1>
-            <h2 className="cert-org">{org}</h2>
+            <h3 className="cert-name">{name}</h3>
+            <h4 className="cert-org">{org}</h4>
             <p className="cert-date">{date}</p>
           </div>
           <div className="right">
-            <img src={logo} alt="logo" height="80px" />
+            <img
+              src={logo}
+              alt={`${org} logo`}
+              height="80px"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
-      </li>
-    </a>
+      </a>
+    </li>
   );
 };
 

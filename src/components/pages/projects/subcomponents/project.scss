@@ -1,4 +1,4 @@
-@import "../../../../main.scss";
+@use "../../../../main.scss" as *;
 
 .project {
   @extend %custom-card;
@@ -43,9 +43,6 @@
 
     a {
       width: 35%;
-      .project-button {
-        width: 100%;
-      }
     }
 
     @include sm {

@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.tsbuildinfo
+
+
+# Claude
+.claude
+note.md

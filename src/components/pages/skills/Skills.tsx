@@ -1,7 +1,9 @@
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import type { EmblaCarouselType } from "embla-carousel";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./skills.scss";
-import Skillgroup from "./subcomponents/Skillgroup";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SkillGroup from "./subcomponents/SkillGroup";
 
 const programmingSkills = [
   { name: "Typescript", number: 4 },
@@ -28,7 +30,7 @@ const backendSkills = [
 const testingSkills = [
   { name: "Manual", number: 4, isHalf: true },
   { name: "Cypress", number: 2, isHalf: true },
-  { name: "Jest", number: 3, isHalf: true },
+  { name: "Jest", number: 2, isHalf: true },
 ];
 
 const languageSkills = [
@@ -37,30 +39,40 @@ const languageSkills = [
   { name: "German", number: 2, isHalf: true },
 ];
 
-const responsive = {
-  largeDesktop: {
-    breakpoint: { max: 4000, min: 1300 },
-    items: 4,
-    partialVisibilityGutter: 30,
-  },
-  desktop: {
-    breakpoint: { max: 1300, min: 800 },
-    items: 3,
-    partialVisibilityGutter: 30,
-  },
-  tablet: {
-    breakpoint: { max: 800, min: 500 },
-    items: 2,
-    partialVisibilityGutter: 30,
-  },
-  mobile: {
-    breakpoint: { max: 500, min: 0 },
-    items: 1,
-    partialVisibilityGutter: 30,
-  },
-};
+const skillGroups = [
+  { name: "Programming languages and tools", skills: programmingSkills },
+  { name: "Front End Development", skills: frontendSkills },
+  { name: "Back End Development", skills: backendSkills },
+  { name: "Software Testing", skills: testingSkills },
+  { name: "Languages", skills: languageSkills },
+];
 
 const Skills = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const onSelect = useCallback((api: EmblaCarouselType) => {
+    setCanScrollPrev(api.canScrollPrev());
+    setCanScrollNext(api.canScrollNext());
+  }, []);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    // Sync initial arrow state from the Embla instance, which only exists
+    // once this effect runs - not a cascading render, just a one-time read.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    onSelect(emblaApi);
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
   return (
     <div className="skills-page">
       <div className="text">
@@ -72,20 +84,35 @@ const Skills = () => {
           technical skills I acquired in Software development and Testing.
         </p>
       </div>
-      <Carousel
-        responsive={responsive}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        className="skills"
-      >
-        <Skillgroup
-          name="Programming languages and tools"
-          skills={programmingSkills}
-        />
-        <Skillgroup name="Front End Development" skills={frontendSkills} />
-        <Skillgroup name="Back End Development" skills={backendSkills} />
-        <Skillgroup name="Software Testing" skills={testingSkills} />
-        <Skillgroup name="Languages" skills={languageSkills} />
-      </Carousel>
+      <div className="skills">
+        <div className="skills__viewport" ref={emblaRef}>
+          <div className="skills__container">
+            {skillGroups.map(({ name, skills }) => (
+              <div className="skills__slide" key={name}>
+                <SkillGroup name={name} skills={skills} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <button
+          type="button"
+          className="skills__arrow skills__arrow--prev"
+          onClick={() => emblaApi?.scrollPrev()}
+          disabled={!canScrollPrev}
+          aria-label="Previous skills"
+        >
+          <FaChevronLeft />
+        </button>
+        <button
+          type="button"
+          className="skills__arrow skills__arrow--next"
+          onClick={() => emblaApi?.scrollNext()}
+          disabled={!canScrollNext}
+          aria-label="Next skills"
+        >
+          <FaChevronRight />
+        </button>
+      </div>
     </div>
   );
 };

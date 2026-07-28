@@ -1,10 +1,10 @@
 # Description
 
-This  project contains my personal portfolio website aiming to introduce and prove my development skills.
+This project contains my personal portfolio website aiming to introduce and prove my development skills.
 
-Website:[ kaselyakbence.com](https://kaselyakbence.com/)
+Website:[kaselyakbence.com](https://kaselyakbence.com/)
 
-# Key Technologies
+## Key Technologies
 
 The website was build usig the following technologies:
 

@@ -1,38 +1,39 @@
-@import "../../../main.scss";
+@use "sass:color";
+@use "../../../main.scss" as *;
 
 .navbaritem {
-    &:hover {
-        color:$bittersweet;
-        font-weight: bold;
-    }
+  @extend %reset-button;
 
-    &::first-letter {
-        text-transform: capitalize;
-    }
+  &:hover {
+    color: $bittersweet;
+    font-weight: bold;
+  }
 
-    @include sm {
-        display: none;
-    }
+  &::first-letter {
+    text-transform: capitalize;
+  }
 
+  @include sm {
+    display: none;
+  }
 }
-
 
 .sidebaritem {
+  @extend %reset-button;
 
-    padding: 5px;
+  padding: 5px;
 
-    &:hover {
-        color:$bittersweet;
-        font-weight: bold;
-    }
+  &:hover {
+    color: $bittersweet;
+    font-weight: bold;
+  }
 
-    &::first-letter {
-        text-transform: capitalize;
-    }
+  &::first-letter {
+    text-transform: capitalize;
+  }
 }
 
-.navbaritem.active,.sidebaritem.active {
-    color: lighten($color: $bittersweet, $amount: 0.5)
+.navbaritem.active,
+.sidebaritem.active {
+  color: color.adjust($bittersweet, $lightness: 0.5%);
 }
-
-

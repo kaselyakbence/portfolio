@@ -2,35 +2,18 @@ import Home from "./components/pages/home/Home";
 import About from "./components/pages/about/About";
 import Skills from "./components/pages/skills/Skills";
 import Projects from "./components/pages/projects/Projects";
-import NavBar, { NavBarState } from "./components/navbar/NavBar";
+import Navbar from "./components/navbar/Navbar";
 import Section from "./components/Section";
-import { scroller } from "react-scroll";
-import { useEffect, useState } from "react";
-
-const initialNavbarState: NavBarState = {
-  home: true,
-  about: false,
-  skills: false,
-  projects: false,
-};
+import { useSectionNavigation } from "./hooks/useSectionNavigation";
 
 const App = () => {
-  const [navbarState, setNavbarState] =
-    useState<NavBarState>(initialNavbarState);
-
-  useEffect(() => {
-    scroller.scrollTo("home", null);
-  }, []);
-
-  const editNavbarState = (key: keyof NavBarState, value: boolean) => {
-    setNavbarState({ ...navbarState, [key]: value });
-  };
+  const { navbarState, editNavbarState } = useSectionNavigation();
 
   return (
     <>
-      <NavBar {...navbarState} />
+      <Navbar {...navbarState} />
       <div className="video">
-        <video autoPlay muted loop>
+        <video autoPlay muted loop poster="/background-poster.webp">
           <source src="/background.mp4" type="video/mp4" />
         </video>
       </div>

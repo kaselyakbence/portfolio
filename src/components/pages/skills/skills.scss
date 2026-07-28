@@ -1,31 +1,93 @@
-@import "../../../main.scss";
+@use "../../../main.scss" as *;
+
+// Custom breakpoints matching the carousel's item-count tiers - kept
+// distinct from the sm/md/lg mixins so the item counts below don't shift.
+$carousel-bp-two-items: 500px;
+$carousel-bp-three-items: 800px;
+$carousel-bp-four-items: 1300px;
 
 .skills-page {
-    width: 100%;
-    height: 100%;
-    padding-top: 2%;
+  width: 100%;
+  height: 100%;
+  padding-top: 2%;
 
-    @include sm {
-        padding-top: 7%;
+  @include sm {
+    padding-top: 7%;
+  }
+
+  .text {
+    width: 80%;
+    margin: auto;
+    margin-top: 10vh;
+
+    p {
+      margin-top: 1%;
+    }
+  }
+
+  .skills {
+    @extend %no-select;
+
+    position: relative;
+
+    margin: auto;
+    margin-top: 5%;
+    width: 80vw;
+
+    &__viewport {
+      overflow: hidden;
     }
 
-
-    .text {
-        width: 80%;
-        margin: auto;
-        margin-top: 10vh;
-
-        p{
-            margin-top: 1%;
-        }
+    &__container {
+      display: flex;
     }
 
-    .skills {
-        @extend %no-select;
+    &__slide {
+      flex: 0 0 100%;
+      min-width: 0;
 
-        margin: auto;
-        margin-top: 5%;
-        width: 80vw;
+      @media (min-width: $carousel-bp-two-items) {
+        flex-basis: 50%;
+      }
 
+      @media (min-width: $carousel-bp-three-items) {
+        flex-basis: 33.3333%;
+      }
+
+      @media (min-width: $carousel-bp-four-items) {
+        flex-basis: 25%;
+      }
     }
+
+    &__arrow {
+      @extend %secondary-button;
+
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+
+      &--prev {
+        left: -20px;
+      }
+
+      &--next {
+        right: -20px;
+      }
+
+      @media (max-width: $carousel-bp-three-items - 1) {
+        display: none;
+      }
+    }
+  }
 }

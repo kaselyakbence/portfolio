@@ -3,15 +3,15 @@ import { educationTimelineItems, professionalItems } from "./data";
 import CustomTimeline from "./subcomponents/CustomTimeline";
 import "./timelinecontainer.scss";
 
-import istqb_foundational from "../../../../assets/certs/istqb-ctfl.png";
-import asw_cp from "../../../../assets/certs/aws-cp.png";
+import istqb_foundational from "../../../../assets/certs/istqb-ctfl.webp";
+import asw_cp from "../../../../assets/certs/aws-cp.webp";
 import CertItem from "./subcomponents/CertItem";
 
-interface AboutButtonsProps {
+interface TimelineContainerProps {
   mode: AboutMode;
 }
 
-const TimelineContainer = ({ mode }: AboutButtonsProps) => {
+const TimelineContainer = ({ mode }: TimelineContainerProps) => {
   return (
     <div className="card-right">
       {mode === "professional" && <CustomTimeline items={professionalItems} />}

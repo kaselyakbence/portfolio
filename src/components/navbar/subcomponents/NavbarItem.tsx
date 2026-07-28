@@ -1,9 +1,9 @@
 import "./navbaritem.scss";
 import { scroller } from "react-scroll";
-import { NavBarState } from "../NavBar";
+import { NavbarState } from "../Navbar";
 
 interface NavbarItemProps {
-  id: keyof NavBarState;
+  id: keyof NavbarState;
   active: boolean;
   mode: "navbaritem" | "sidebaritem";
   onClick?: () => void;
@@ -11,8 +11,10 @@ interface NavbarItemProps {
 
 const NavbarItem = ({ id, active, mode, onClick }: NavbarItemProps) => {
   return (
-    <p
+    <button
+      type="button"
       className={active ? `${mode} active` : mode}
+      aria-current={active ? "page" : undefined}
       onClick={() => {
         scroller.scrollTo(id, {
           duration: 1000,
@@ -24,7 +26,7 @@ const NavbarItem = ({ id, active, mode, onClick }: NavbarItemProps) => {
       }}
     >
       {id}
-    </p>
+    </button>
   );
 };
 

@@ -2,12 +2,12 @@ import "./skillgroup.scss";
 
 import Skill, { SkillProps } from "./Skill";
 
-interface SkillgroupProps {
+interface SkillGroupProps {
   name: string;
   skills: SkillProps[];
 }
 
-const Skillgroup = ({ name, skills }: SkillgroupProps) => {
+const SkillGroup = ({ name, skills }: SkillGroupProps) => {
   return (
     <div className="skill-group">
       <div className="skill-name">
@@ -20,4 +20,4 @@ const Skillgroup = ({ name, skills }: SkillgroupProps) => {
   );
 };
 
-export default Skillgroup;
+export default SkillGroup;

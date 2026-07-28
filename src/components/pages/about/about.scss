@@ -1,4 +1,5 @@
-@import "../../../main.scss";
+@use "sass:color";
+@use "../../../main.scss" as *;
 
 .about-page {
   width: 80vw;
@@ -44,7 +45,7 @@
       }
 
       .line {
-        border: 1px solid white;
+        border: 1px solid $white;
         width: 90%;
         margin: auto;
       }
@@ -55,7 +56,14 @@
           margin: auto;
           margin-top: 4%;
 
-          @extend %secondary-button;
+          list-style: none;
+
+          button {
+            @extend %reset-button;
+            @extend %secondary-button;
+
+            width: 100%;
+          }
         }
       }
 
@@ -63,52 +71,25 @@
         width: 80%;
         margin-left: 10%;
         .active {
-          color: lighten($color: $bittersweet, $amount: 1);
-          border: 1px solid lighten($color: $bittersweet, $amount: 1);
+          color: color.adjust($bittersweet, $lightness: 1%);
+          border: 1px solid color.adjust($bittersweet, $lightness: 1%);
         }
       }
     }
     .card-right {
+      @extend %disable-scrollbar;
+
       width: 60%;
       height: 100%;
 
       padding: 1%;
 
+      overflow-y: auto;
+
       @include sm {
         width: 100%;
 
         padding: 0;
-      }
-
-      .vertical-item-row {
-        margin: 0;
-      }
-
-      .timeline-card-content {
-        margin-bottom: 1rem;
-
-        height: fit-content;
-      }
-
-      .timeline-vertical-circle {
-        pointer-events: none;
-        cursor: default;
-      }
-
-      .timeline-item-title {
-        color: white;
-      }
-
-      .card-description {
-        align-items: flex-start;
-      }
-      .card-content-wrapper {
-        pointer-events: none;
-        cursor: default;
-
-        width: 100%;
-
-        height: fit-content;
       }
 
       .about-info {
@@ -131,14 +112,20 @@
     }
 
     .close-icon {
+      @extend %reset-button;
+
       position: absolute;
       left: 5px;
       top: 5px;
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       width: 25px;
       height: 25px;
 
-      z-index: 9;
+      z-index: $z-overlay;
     }
   }
 

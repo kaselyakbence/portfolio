@@ -1,4 +1,4 @@
-import { Chrono } from "react-chrono";
+import "./customtimeline.scss";
 import CustomTimelineItem, {
   CustomTimelineItemProps,
 } from "./CustomTimelineItem";
@@ -9,26 +9,16 @@ interface CustomTimelineProps {
 
 const CustomTimeline = ({ items }: CustomTimelineProps) => {
   return (
-    <Chrono
-      mode="VERTICAL"
-      disableToolbar={true}
-      slideShow
-      slideItemDuration={3000}
-      cardHeight={120}
-      scrollable={false}
-      activeItemIndex={5}
-      theme={{
-        primary: "#FA7E61",
-      }}
-      classNames={{
-        title: "timeline-title",
-      }}
-      disableNavOnKey
-    >
+    <ul className="custom-timeline">
       {items.map((item, i) => (
-        <CustomTimelineItem key={"timelineitem" + i} {...item} />
+        <li className="custom-timeline__row" key={item.title + i}>
+          <div className="custom-timeline__point" />
+          <div className="custom-timeline__card">
+            <CustomTimelineItem {...item} />
+          </div>
+        </li>
       ))}
-    </Chrono>
+    </ul>
   );
 };
 
