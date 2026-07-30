@@ -5,13 +5,15 @@ import Mohanet from "../../../../assets/logo_mohanet.webp";
 import ELTE from "../../../../assets/elte_icon.jpg";
 import UCPH from "../../../../assets/ucph_logo.png";
 import Humboldt from "../../../../assets/humboldt_logo.png";
+import AppAkademie from "../../../../assets/app-akademie-logo.png";
 
 export const professionalItems: CustomTimelineItemProps[] = [
   {
-    date: "04/2024 - Now",
-    title: "Content Moderator | Teleperformance",
+    date: "04/2024 - 04/2026",
+    title: "Trust and Safety Customer Expert | Teleperformance",
     subtitle: "Berlin,Germany | Full-time",
     logo: Tp,
+    desc: "Reviewed and evaluated user- and AI-generated content for policy compliance, applying analytical thinking and decision-making to support platform safety and content quality.",
   },
   {
     date: "09/2022 - 09/2023",
@@ -37,6 +39,13 @@ export const professionalItems: CustomTimelineItemProps[] = [
 ];
 
 export const educationTimelineItems: CustomTimelineItemProps[] = [
+  {
+    date: "05/2026 - 01/2027",
+    title: "App Akademie",
+    subtitle: "Professional Training Programme",
+    logo: AppAkademie,
+    desc: "Full-time professional training in AI-assisted software engineering. Topics include Git & GitHub, UX/UI, Dart, Flutter, AI-assisted software development, software architecture, collaborative development workflows, and a practical software engineering project. The programme emphasizes modern AI tools, version control, mobile application development, and real-world project experience.",
+  },
   {
     date: "09/2023 - 02/2024 | Erasmus+",
     title: "Humboldt Universität zu Berlin",
