@@ -70,10 +70,14 @@
   }
 
   .ham-menu {
+    @extend %reset-button;
+
     width: 30px;
     height: 30px;
 
     position: relative;
+
+    background-color: $black;
 
     z-index: $z-menu-toggle;
 
