@@ -37,6 +37,7 @@ export default {
       "Szakmai munkám és tanulmányi éveim során számos készséget, programozási nyelvet és eszközt sajátítottam el, hogy fejlesszem a fejlesztői és tesztelői karrieremet. Íme egy átfogó áttekintés minden technikai készségről, amelyet a szoftverfejlesztés és a tesztelés terén szereztem.",
     prevAriaLabel: "Előző készségek",
     nextAriaLabel: "Következő készségek",
+    slideAriaLabel: "Ugrás a(z) {{number}}. készségcsoportra",
     groups: {
       programming: "Programozási nyelvek és eszközök",
       frontend: "Frontend fejlesztés",

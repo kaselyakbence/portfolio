@@ -115,17 +115,30 @@
       @extend %reset-button;
 
       position: absolute;
-      left: 5px;
-      top: 5px;
+      left: 10px;
+      top: 10px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      width: 25px;
-      height: 25px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+
+      background-color: $violet;
+      border: 1px solid $white;
+      color: $white;
+
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba($black, 0.4);
 
       z-index: $z-overlay;
+
+      &:hover {
+        background-color: $bittersweet;
+        border-color: $bittersweet;
+      }
     }
   }
 

@@ -11,7 +11,7 @@ export default {
   },
   home: {
     welcome: "Welcome",
-    name: "My name is Bence Kaselyák",
+    name: "Bence Kaselyák",
     role: "Web Developer & Software Tester",
     resumeButton: "Check out my resume",
   },
@@ -37,6 +37,7 @@ export default {
       "During my professional work and academic years, I learned several skills, programming languages, and tools to further my career as a developer and tester. Here is a comprehensive overview of all the technical skills I acquired in Software development and Testing.",
     prevAriaLabel: "Previous skills",
     nextAriaLabel: "Next skills",
+    slideAriaLabel: "Go to skill group {{number}}",
     groups: {
       programming: "Programming languages and tools",
       frontend: "Front End Development",

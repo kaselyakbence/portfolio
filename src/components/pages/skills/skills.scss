@@ -89,5 +89,28 @@ $carousel-bp-four-items: 1300px;
         display: none;
       }
     }
+
+    &__dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      margin-top: 5%;
+    }
+
+    &__dot {
+      @extend %reset-button;
+
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+
+      background-color: rgba($white, 0.3);
+      cursor: pointer;
+
+      &.active {
+        background-color: $white;
+      }
+    }
   }
 }

@@ -37,6 +37,7 @@ export default {
       "Während meiner Berufstätigkeit und meiner akademischen Jahre habe ich mehrere Fähigkeiten, Programmiersprachen und Tools erlernt, um meine Karriere als Entwickler und Tester voranzutreiben. Hier ist ein umfassender Überblick über alle technischen Fähigkeiten, die ich in der Softwareentwicklung und im Testing erworben habe.",
     prevAriaLabel: "Vorherige Fähigkeiten",
     nextAriaLabel: "Nächste Fähigkeiten",
+    slideAriaLabel: "Zur Fähigkeitengruppe {{number}} wechseln",
     groups: {
       programming: "Programmiersprachen und Tools",
       frontend: "Frontend-Entwicklung",
