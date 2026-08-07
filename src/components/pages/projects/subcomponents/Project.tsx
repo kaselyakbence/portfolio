@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import "./project.scss";
 
 interface ProjectProps {
@@ -8,6 +9,8 @@ interface ProjectProps {
 }
 
 const Project = ({ name, githubLink, demoLink, imgSrc }: ProjectProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="project">
       <img
@@ -25,7 +28,7 @@ const Project = ({ name, githubLink, demoLink, imgSrc }: ProjectProps) => {
           rel="noopener noreferrer"
           className="button project-button"
         >
-          GitHub
+          {t("projects.github")}
         </a>
         <a
           href={demoLink}
@@ -33,7 +36,7 @@ const Project = ({ name, githubLink, demoLink, imgSrc }: ProjectProps) => {
           rel="noopener noreferrer"
           className="button project-button"
         >
-          Live demo
+          {t("projects.liveDemo")}
         </a>
       </div>
     </div>

@@ -9,10 +9,6 @@
     font-weight: bold;
   }
 
-  &::first-letter {
-    text-transform: capitalize;
-  }
-
   @include sm {
     display: none;
   }
@@ -30,10 +26,6 @@
   &:hover {
     color: $bittersweet;
     font-weight: bold;
-  }
-
-  &::first-letter {
-    text-transform: capitalize;
   }
 }
 

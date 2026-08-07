@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaCarouselType } from "embla-carousel";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import "./skills.scss";
 import SkillGroup from "./subcomponents/SkillGroup";
 
@@ -40,14 +41,15 @@ const languageSkills = [
 ];
 
 const skillGroups = [
-  { name: "Programming languages and tools", skills: programmingSkills },
-  { name: "Front End Development", skills: frontendSkills },
-  { name: "Back End Development", skills: backendSkills },
-  { name: "Software Testing", skills: testingSkills },
-  { name: "Languages", skills: languageSkills },
+  { id: "programming", skills: programmingSkills },
+  { id: "frontend", skills: frontendSkills },
+  { id: "backend", skills: backendSkills },
+  { id: "testing", skills: testingSkills },
+  { id: "languages", skills: languageSkills },
 ];
 
 const Skills = () => {
+  const { t } = useTranslation();
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -76,20 +78,15 @@ const Skills = () => {
   return (
     <div className="skills-page">
       <div className="text">
-        <h1>My Skills</h1>
-        <p>
-          During my professional work and academic years, I learned several
-          skills, programming languages, and tools to further my career as a
-          developer and tester. Here is a comprehensive overview of all the
-          technical skills I acquired in Software development and Testing.
-        </p>
+        <h1>{t("skills.title")}</h1>
+        <p>{t("skills.intro")}</p>
       </div>
       <div className="skills">
         <div className="skills__viewport" ref={emblaRef}>
           <div className="skills__container">
-            {skillGroups.map(({ name, skills }) => (
-              <div className="skills__slide" key={name}>
-                <SkillGroup name={name} skills={skills} />
+            {skillGroups.map(({ id, skills }) => (
+              <div className="skills__slide" key={id}>
+                <SkillGroup name={t(`skills.groups.${id}`)} skills={skills} />
               </div>
             ))}
           </div>
@@ -99,7 +96,7 @@ const Skills = () => {
           className="skills__arrow skills__arrow--prev"
           onClick={() => emblaApi?.scrollPrev()}
           disabled={!canScrollPrev}
-          aria-label="Previous skills"
+          aria-label={t("skills.prevAriaLabel")}
         >
           <FaChevronLeft />
         </button>
@@ -108,7 +105,7 @@ const Skills = () => {
           className="skills__arrow skills__arrow--next"
           onClick={() => emblaApi?.scrollNext()}
           disabled={!canScrollNext}
-          aria-label="Next skills"
+          aria-label={t("skills.nextAriaLabel")}
         >
           <FaChevronRight />
         </button>

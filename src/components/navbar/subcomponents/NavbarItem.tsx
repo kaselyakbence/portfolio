@@ -1,5 +1,6 @@
 import "./navbaritem.scss";
 import { scroller } from "react-scroll";
+import { useTranslation } from "react-i18next";
 import { NavbarState } from "../Navbar";
 
 interface NavbarItemProps {
@@ -10,6 +11,8 @@ interface NavbarItemProps {
 }
 
 const NavbarItem = ({ id, active, mode, onClick }: NavbarItemProps) => {
+  const { t } = useTranslation();
+
   return (
     <button
       type="button"
@@ -25,7 +28,7 @@ const NavbarItem = ({ id, active, mode, onClick }: NavbarItemProps) => {
         if (onClick) onClick();
       }}
     >
-      {id}
+      {t(`nav.${id}`)}
     </button>
   );
 };
