@@ -1,63 +1,56 @@
+import { useTranslation } from "react-i18next";
 import { AboutMode } from "../About";
-import { educationTimelineItems, professionalItems } from "./data";
+import {
+  educationEntries,
+  professionalEntries,
+  projectTimelineForLang,
+} from "./data";
+import { certificationEntries, projectCertsForLang } from "./certifications";
 import CustomTimeline from "./subcomponents/CustomTimeline";
 import "./timelinecontainer.scss";
 
-import istqb_foundational from "../../../../assets/certs/istqb-ctfl.png";
-import asw_cp from "../../../../assets/certs/aws-cp.png";
 import CertItem from "./subcomponents/CertItem";
+import { isSupportedLang } from "../../../../i18n/languages";
 
 interface TimelineContainerProps {
   mode: AboutMode;
 }
 
 const TimelineContainer = ({ mode }: TimelineContainerProps) => {
+  const { t, i18n } = useTranslation();
+  const lang = isSupportedLang(i18n.language) ? i18n.language : "en";
+
   return (
     <div className="card-right">
-      {mode === "professional" && <CustomTimeline items={professionalItems} />}
-      {mode === "academic" && <CustomTimeline items={educationTimelineItems} />}
+      {mode === "professional" && (
+        <CustomTimeline
+          items={projectTimelineForLang(professionalEntries, lang)}
+        />
+      )}
+      {mode === "academic" && (
+        <CustomTimeline
+          items={projectTimelineForLang(educationEntries, lang)}
+        />
+      )}
       {mode === "about" && (
         <div className="about-info">
-          <p>
-            I was born in Debrecen, went to university and worked in Budapest
-            and studied in Copenhagen. I came to Berlin to do an Erasmus+
-            semester and learn fluent German, but fell in love with the city and
-            all its people, so I decided to stay and build a career here. I love
-            traveling around Europe, reading, and meeting people from all around
-            the world.
-          </p>
-          <p>
-            During my early academic education, I realized I had a deep interest
-            in creating websites and web applications, so I decided to pursue a
-            Software Developer career. I specialize in Javascript and Typescript
-            (both in Backend and Frontend), but I also have academic and
-            professional experience with other languages and tools like Python
-            or Java.
-          </p>
-          <p>
-            My goal is to gain relevant professional experience in every aspect
-            of Web Development. I'm hoping to experience all roles required to
-            develop and maintain a Web Application, so that one day I can start
-            my own startup and create something truly unique, that helps others.
-          </p>
+          <p>{t("about.aboutMeParagraphs.0")}</p>
+          <p>{t("about.aboutMeParagraphs.1")}</p>
+          <p>{t("about.aboutMeParagraphs.2")}</p>
         </div>
       )}
       {mode === "certifications" && (
         <ul className="cert-list">
-          <CertItem
-            name="Certified Cloud Practitioner"
-            date="May 2025"
-            logo={asw_cp}
-            org="Amazon Web Services"
-            link="https://www.credly.com/badges/f0cdd85f-dc39-4e57-9315-0a22467e1965/public_url"
-          />
-          <CertItem
-            name="Certified Tester Foundation Level"
-            date="March 2025"
-            logo={istqb_foundational}
-            org="ASTQB - ISTQB in the U.S."
-            link="https://atsqa.org/certified-testers/profile/41704efe023244fc9cff4609724a5013"
-          />
+          {projectCertsForLang(certificationEntries, lang).map((cert) => (
+            <CertItem
+              key={cert.link}
+              name={cert.name}
+              date={cert.date}
+              logo={cert.logo}
+              org={cert.org}
+              link={cert.link}
+            />
+          ))}
         </ul>
       )}
     </div>

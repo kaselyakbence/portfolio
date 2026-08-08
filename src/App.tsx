@@ -4,6 +4,7 @@ import Skills from "./components/pages/skills/Skills";
 import Projects from "./components/pages/projects/Projects";
 import Navbar from "./components/navbar/Navbar";
 import Section from "./components/Section";
+import LanguageToggle from "./components/LanguageToggle";
 import { useSectionNavigation } from "./hooks/useSectionNavigation";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
   return (
     <>
       <Navbar {...navbarState} />
+      <LanguageToggle />
       <div className="video">
         <video autoPlay muted loop poster="/background-poster.webp">
           <source src="/background.mp4" type="video/mp4" />

@@ -1,0 +1,41 @@
+@use "../main.scss" as *;
+
+.language-toggle {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: $z-overlay;
+
+  display: flex;
+
+  button {
+    @extend %reset-button;
+
+    padding: 4px 10px;
+    margin-right: 4px;
+    border: 1px solid $white;
+    border-radius: 4px;
+    background-color: rgba($violet, 0.85);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+
+    max-width: 60px;
+    opacity: 1;
+    transition:
+      max-width 0.25s ease,
+      opacity 0.2s ease,
+      padding 0.25s ease,
+      margin 0.25s ease,
+      border-width 0.25s ease;
+
+    &.collapsed {
+      max-width: 0;
+      padding: 4px 0;
+      margin-right: 0;
+      border-width: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

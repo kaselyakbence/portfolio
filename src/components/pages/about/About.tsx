@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 import "./about.scss";
 import TimelineContainer from "./timeline/TimelineContainer";
 
@@ -12,6 +13,7 @@ interface MobileLayoutProps {
 }
 
 const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
+  const { t } = useTranslation();
   const [active, setActive] = useState(false);
 
   const activate = (mode: AboutMode) => {
@@ -26,7 +28,7 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
           <button
             type="button"
             className="close-icon"
-            aria-label="Close"
+            aria-label={t("about.close")}
             onClick={() => setActive(false)}
           >
             <IoMdClose />
@@ -35,32 +37,28 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
         </>
       ) : (
         <div className="card-left">
-          <h1 className="about-header">Living in Berlin, Germany</h1>
-          <p className="about-info">
-            I’m a Software Developer,who specializes in Web development using
-            Typescript and React, but I also have experience with other
-            languages and tools like Python or Java.
-          </p>
+          <h1 className="about-header">{t("about.header")}</h1>
+          <p className="about-info">{t("about.bio")}</p>
           <div className="line" />
           <ul className="buttons">
             <li>
               <button type="button" onClick={() => activate("professional")}>
-                Professional experience
+                {t("about.tabs.professional")}
               </button>
             </li>
             <li>
               <button type="button" onClick={() => activate("academic")}>
-                Academic experience
+                {t("about.tabs.academic")}
               </button>
             </li>
             <li>
               <button type="button" onClick={() => activate("certifications")}>
-                Certifications
+                {t("about.tabs.certifications")}
               </button>
             </li>
             <li>
               <button type="button" onClick={() => activate("about")}>
-                About me
+                {t("about.tabs.aboutMe")}
               </button>
             </li>
           </ul>
@@ -71,18 +69,15 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
 };
 
 const About = () => {
+  const { t } = useTranslation();
   const [mode, setMode] = useState<AboutMode>("professional");
 
   return (
     <div className="about-page">
       <div className="card desktop-card">
         <div className="card-left">
-          <h1 className="about-header">Living in Berlin, Germany</h1>
-          <p className="about-info">
-            I’m a Software Developer,who specializes in Web development using
-            Typescript and React, but I also have experience with other
-            languages and tools like Python or Java.
-          </p>
+          <h1 className="about-header">{t("about.header")}</h1>
+          <p className="about-info">{t("about.bio")}</p>
           <div className="line" />
           <ul className="buttons">
             <li>
@@ -92,7 +87,7 @@ const About = () => {
                 className={mode == "professional" ? "active" : ""}
                 aria-pressed={mode == "professional"}
               >
-                Professional experience
+                {t("about.tabs.professional")}
               </button>
             </li>
             <li>
@@ -102,7 +97,7 @@ const About = () => {
                 className={mode == "academic" ? "active" : ""}
                 aria-pressed={mode == "academic"}
               >
-                Academic experience
+                {t("about.tabs.academic")}
               </button>
             </li>
             <li>
@@ -112,7 +107,7 @@ const About = () => {
                 className={mode == "certifications" ? "active" : ""}
                 aria-pressed={mode == "certifications"}
               >
-                Certifications
+                {t("about.tabs.certifications")}
               </button>
             </li>
             <li>
@@ -122,7 +117,7 @@ const About = () => {
                 className={mode == "about" ? "active" : ""}
                 aria-pressed={mode == "about"}
               >
-                About me
+                {t("about.tabs.aboutMe")}
               </button>
             </li>
           </ul>
