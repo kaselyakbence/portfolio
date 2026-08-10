@@ -16,7 +16,7 @@ export default {
     resumeButton: "Lebenslauf ansehen",
   },
   about: {
-    header: "Lebt in Berlin, Deutschland",
+    header: "Frontend-Entwickler & Softwaretester",
     bio: "Ich bin Softwareentwickler und habe mich auf Webentwicklung mit Typescript und React spezialisiert, verfüge aber auch über Erfahrung mit anderen Sprachen und Tools wie Python oder Java.",
     close: "Schließen",
     tabs: {
@@ -26,9 +26,10 @@ export default {
       aboutMe: "Über mich",
     },
     aboutMeParagraphs: [
-      "Ich wurde in Debrecen geboren, ging in Budapest zur Universität und arbeitete dort, und studierte in Kopenhagen. Ich kam nach Berlin für ein Erasmus+-Semester, um fließend Deutsch zu lernen, verliebte mich aber in die Stadt und ihre Menschen und entschied mich, zu bleiben und hier eine Karriere aufzubauen. Ich reise gerne durch Europa, lese und lerne Menschen aus aller Welt kennen.",
-      "Während meiner frühen akademischen Ausbildung merkte ich, dass ich ein tiefes Interesse an der Erstellung von Websites und Webanwendungen habe, weshalb ich mich entschied, eine Karriere als Softwareentwickler zu verfolgen. Ich habe mich auf Javascript und Typescript spezialisiert (sowohl im Backend als auch im Frontend), verfüge aber auch über akademische und berufliche Erfahrung mit anderen Sprachen und Tools wie Python oder Java.",
-      "Mein Ziel ist es, relevante Berufserfahrung in jedem Bereich der Webentwicklung zu sammeln. Ich hoffe, alle Rollen zu erleben, die für die Entwicklung und Pflege einer Webanwendung nötig sind, damit ich eines Tages mein eigenes Startup gründen und etwas wirklich Einzigartiges schaffen kann, das anderen hilft.",
+      "Ich bin Frontend-Entwickler und arbeite hauptsächlich mit JavaScript und TypeScript in React und Node.js. Außerdem bringe ich praktische Erfahrung in QA und Trust & Safety mit.",
+      "Mein Weg hierher war nicht geradlinig, und das gefällt mir. Ich wurde in Debrecen geboren, studierte Informatik in Budapest und verbrachte ein Jahr in Kopenhagen, bevor mich ein Erasmus+-Semester nach Berlin brachte.",
+      "Aktuell vertiefe ich meine Kenntnisse in KI-unterstützter Softwareentwicklung, mit Fokus darauf, schnelle, zuverlässige und durchdachte Webanwendungen zu bauen. Neben dem Programmieren reise ich gerne durch Europa, lese und lerne Menschen aus unterschiedlichen Hintergründen kennen — wahrscheinlich einer der Gründe, warum mir so viel daran liegt, Dinge zu bauen, die für alle Arten von Nutzern gut funktionieren.",
+      "Ich freue mich immer, mich mit anderen Entwicklern auszutauschen oder über Frontend, QA oder das Leben als Expat in Berlin zu sprechen.",
     ],
   },
   skills: {

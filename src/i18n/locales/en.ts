@@ -16,7 +16,7 @@ export default {
     resumeButton: "Check out my resume",
   },
   about: {
-    header: "Living in Berlin, Germany",
+    header: "Frontend Developer & Software Tester",
     bio: "I’m a Software Developer,who specializes in Web development using Typescript and React, but I also have experience with other languages and tools like Python or Java.",
     close: "Close",
     tabs: {
@@ -26,9 +26,10 @@ export default {
       aboutMe: "About me",
     },
     aboutMeParagraphs: [
-      "I was born in Debrecen, went to university and worked in Budapest and studied in Copenhagen. I came to Berlin to do an Erasmus+ semester and learn fluent German, but fell in love with the city and all its people, so I decided to stay and build a career here. I love traveling around Europe, reading, and meeting people from all around the world.",
-      "During my early academic education, I realized I had a deep interest in creating websites and web applications, so I decided to pursue a Software Developer career. I specialize in Javascript and Typescript (both in Backend and Frontend), but I also have academic and professional experience with other languages and tools like Python or Java.",
-      "My goal is to gain relevant professional experience in every aspect of Web Development. I'm hoping to experience all roles required to develop and maintain a Web Application, so that one day I can start my own startup and create something truly unique, that helps others.",
+      "I am a Frontend Developer working primarily in JavaScript and TypeScript across React and Node.js. I also bring hands-on experience in QA and Trust & Safety.",
+      "My path here wasn't linear, and I like that. I was born in Debrecen, studied Computer Science in Budapest, and spent a year in Copenhagen before an Erasmus+ semester brought me to Berlin.",
+      "I'm currently deepening my AI-assisted software engineering skills, with a focus on building fast, reliable, and thoughtful web applications. Outside of coding, I'm into traveling around Europe, reading, and meeting people from different backgrounds — probably why I care so much about building things that work well for all kinds of users.",
+      "Always happy to connect with fellow developers, or to talk about frontend, QA, or life in Berlin as an expat.",
     ],
   },
   skills: {

@@ -16,7 +16,7 @@ export default {
     resumeButton: "Önéletrajzom",
   },
   about: {
-    header: "Berlinben, Németországban élek",
+    header: "Frontend fejlesztő és szoftvertesztelő",
     bio: "Szoftverfejlesztő vagyok, aki Typescript és React használatával foglalkozik webfejlesztéssel, de tapasztalattal rendelkezem más nyelvekkel és eszközökkel is, mint például a Python vagy a Java.",
     close: "Bezárás",
     tabs: {
@@ -26,9 +26,10 @@ export default {
       aboutMe: "Rólam",
     },
     aboutMeParagraphs: [
-      "Debrecenben születtem, Budapesten jártam egyetemre és dolgoztam, majd Koppenhágában tanultam. Berlinbe egy Erasmus+ félévre érkeztem, hogy folyékonyan megtanuljak németül, de beleszerettem a városba és az itt élő emberekbe, ezért úgy döntöttem, itt maradok, és itt építem fel a karrieremet. Szeretek Európában utazni, olvasni, és emberekkel találkozni a világ minden tájáról.",
-      "A korai tanulmányaim során rájöttem, hogy mélyen érdekel weboldalak és webalkalmazások készítése, ezért úgy döntöttem, hogy szoftverfejlesztői karriert választok. A Javascriptre és a Typescriptre specializálódtam (mind Backend, mind Frontend területen), de tanulmányi és szakmai tapasztalattal is rendelkezem más nyelvekkel és eszközökkel, mint például a Python vagy a Java.",
-      "A célom, hogy releváns szakmai tapasztalatot szerezzek a webfejlesztés minden területén. Szeretném megtapasztalni minden olyan szerepkört, amely egy webalkalmazás fejlesztéséhez és karbantartásához szükséges, hogy egy nap elindíthassam a saját startupomat, és létrehozhassak valami igazán egyedit, ami segít másoknak.",
+      "Frontend fejlesztő vagyok, elsősorban JavaScript és TypeScript nyelveken, React és Node.js használatával. Emellett gyakorlati tapasztalattal rendelkezem QA és Trust & Safety területen is.",
+      "Az idáig vezető utam nem volt egyenes vonalú, és ez tetszik is. Debrecenben születtem, Budapesten tanultam számítástechnikát, és egy évet töltöttem Koppenhágában, mielőtt egy Erasmus+ félév Berlinbe hozott.",
+      "Jelenleg a mesterséges intelligencia által támogatott szoftverfejlesztési ismereteimet mélyítem, azzal a céllal, hogy gyors, megbízható és átgondolt webalkalmazásokat építsek. A kódoláson kívül szeretek Európában utazni, olvasni, és különböző háttérrel rendelkező emberekkel találkozni — valószínűleg ezért is fontos számomra, hogy olyan dolgokat építsek, amelyek minden típusú felhasználó számára jól működnek.",
+      "Mindig szívesen ismerkedem más fejlesztőkkel, vagy beszélgetek frontendről, QA-ról, vagy a berlini kiköltözött életről.",
     ],
   },
   skills: {
