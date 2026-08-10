@@ -23,6 +23,7 @@
       width: 100%;
       height: 75%;
       margin: 5%;
+      overflow: visible;
     }
 
     .top-line {
@@ -52,19 +53,34 @@
           display: none;
         }
       }
+
+      .content {
+        // Flex items default to min-width: auto, which refuses to shrink
+        // below the width of the longest unbreakable word (the h1) - this
+        // was clipping longer translated headings against .text's
+        // overflow: hidden instead of letting them wrap.
+        min-width: 0;
+      }
+
       h1 {
         margin-top: 25%;
         font-size: 5rem;
         margin-bottom: 3%;
 
         @include sm {
-          display: flex;
-          align-items: center;
-
           margin-bottom: 5%;
 
-          width: 100%;
-          margin-left: auto;
+          // JS (see Home.tsx) measures this as one line and sets font-size
+          // so it fills the available width, whichever language's word is
+          // showing. nowrap keeps that measurement unambiguous - without
+          // it, the huge reference size used for measuring could itself
+          // wrap/break, corrupting the width the JS reads back. overflow +
+          // max-width are the hard guarantee: even if the JS math is ever
+          // off, the heading can't visually escape the screen.
+          text-align: center;
+          white-space: nowrap;
+          overflow: hidden;
+          max-width: 100%;
         }
       }
 
@@ -75,6 +91,19 @@
         @include sm {
           font-size: 1.6rem;
         }
+      }
+
+      .name {
+        @include sm {
+          font-size: 2rem;
+        }
+      }
+
+      .role {
+        // Balances line lengths instead of the browser's default greedy
+        // wrap, which was leaving a single orphaned word ("Tester") alone
+        // on its own line once this text wraps to multiple lines.
+        text-wrap: balance;
       }
 
       .right-line {

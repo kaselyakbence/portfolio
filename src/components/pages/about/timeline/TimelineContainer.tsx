@@ -37,6 +37,7 @@ const TimelineContainer = ({ mode }: TimelineContainerProps) => {
           <p>{t("about.aboutMeParagraphs.0")}</p>
           <p>{t("about.aboutMeParagraphs.1")}</p>
           <p>{t("about.aboutMeParagraphs.2")}</p>
+          <p>{t("about.aboutMeParagraphs.3")}</p>
         </div>
       )}
       {mode === "certifications" && (
