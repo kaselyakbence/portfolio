@@ -6,6 +6,7 @@ export interface CustomTimelineItemProps {
   date: string;
   desc?: string;
   logo: string;
+  link?: string;
 }
 
 const CustomTimelineItem = ({
@@ -14,9 +15,10 @@ const CustomTimelineItem = ({
   date,
   desc,
   logo,
+  link,
 }: CustomTimelineItemProps) => {
-  return (
-    <div className="custom-item">
+  const content = (
+    <>
       <div className="item-header">
         <div className="item-header-left">
           <h3>{title}</h3>
@@ -34,8 +36,23 @@ const CustomTimelineItem = ({
         </div>
       </div>
       {desc && <p className="item-description">{desc}</p>}
-    </div>
+    </>
   );
+
+  if (link) {
+    return (
+      <a
+        className="custom-item"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="custom-item">{content}</div>;
 };
 
 export default CustomTimelineItem;
