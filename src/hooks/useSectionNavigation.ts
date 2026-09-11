@@ -80,11 +80,16 @@ export const useSectionNavigation = () => {
       if (nextIndex < 0 || nextIndex >= sectionOrder.length) return;
 
       isNavigatingRef.current = true;
-      scroller.scrollTo(sectionOrder[nextIndex], {
-        duration: SCROLL_DURATION,
-        smooth: true,
-        offset: 5,
-      });
+      const target = document.getElementById(sectionOrder[nextIndex]);
+      if (safariMobile && target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        scroller.scrollTo(sectionOrder[nextIndex], {
+          duration: SCROLL_DURATION,
+          smooth: true,
+          offset: 5,
+        });
+      }
 
       setTimeout(() => {
         isNavigatingRef.current = false;
@@ -129,50 +134,7 @@ export const useSectionNavigation = () => {
     };
 
     if (safariMobile) {
-      let safariTouchStartY = 0;
-      let safariTouchStartedInScrollable = false;
-      let safariTouchMoved = false;
-
-      const handleSafariTouchStart = (event: TouchEvent) => {
-        safariTouchStartY = event.touches[0].clientY;
-        safariTouchStartedInScrollable = isWithinScrollableElement(
-          event.target
-        );
-        safariTouchMoved = false;
-      };
-
-      const handleSafariTouchMove = (event: TouchEvent) => {
-        if (safariTouchStartedInScrollable) return;
-
-        const deltaY = safariTouchStartY - event.touches[0].clientY;
-        if (Math.abs(deltaY) >= SWIPE_THRESHOLD) {
-          safariTouchMoved = true;
-        }
-      };
-
-      const handleSafariTouchEnd = (event: TouchEvent) => {
-        if (safariTouchStartedInScrollable || !safariTouchMoved) return;
-
-        const deltaY = safariTouchStartY - event.changedTouches[0].clientY;
-        goToRelativeSection(deltaY > 0 ? 1 : -1);
-      };
-
-      window.addEventListener("touchstart", handleSafariTouchStart, {
-        passive: true,
-      });
-      window.addEventListener("touchmove", handleSafariTouchMove, {
-        passive: false,
-      });
-      window.addEventListener("touchend", handleSafariTouchEnd, {
-        passive: true,
-      });
-
-      return () => {
-        window.removeEventListener("touchstart", handleSafariTouchStart);
-        window.removeEventListener("touchmove", handleSafariTouchMove);
-        window.removeEventListener("touchend", handleSafariTouchEnd);
-        document.body.classList.remove("mobile-safari");
-      };
+      return () => document.body.classList.remove("mobile-safari");
     }
 
     window.addEventListener("wheel", handleWheel, { passive: false });

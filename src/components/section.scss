@@ -4,6 +4,11 @@
   height: 105vh;
   width: 100%;
 
+  body.mobile-safari & {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
   z-index: $z-content;
 
   opacity: 0;
