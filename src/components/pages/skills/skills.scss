@@ -37,6 +37,17 @@ $carousel-bp-four-items: 1300px;
     }
   }
 
+  &.is-german {
+    @include sm {
+      .text {
+        p {
+          font-size: 0.9rem;
+          line-height: 1.15;
+        }
+      }
+    }
+  }
+
   .skills {
     @extend %no-select;
 

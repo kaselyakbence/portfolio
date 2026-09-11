@@ -22,7 +22,7 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
   };
 
   return (
-    <div className="card mobile-card">
+    <div className={`card mobile-card${active ? " is-active" : ""}`}>
       {active ? (
         <>
           <button

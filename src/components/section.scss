@@ -12,7 +12,9 @@
   > * {
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity 500ms ease, transform 500ms ease;
+    transition:
+      opacity 500ms ease,
+      transform 500ms ease;
   }
 
   &.is-visible {
@@ -22,6 +24,12 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @include sm {
+    min-height: calc(100vh - 10vh);
+    min-height: calc(100dvh - 10dvh);
+    height: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {

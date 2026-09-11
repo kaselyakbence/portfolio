@@ -49,7 +49,8 @@ const skillGroups = [
 ];
 
 const Skills = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isGerman = i18n.language === "de";
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     containScroll: "trimSnaps",
@@ -106,7 +107,7 @@ const Skills = () => {
   );
 
   return (
-    <div className="skills-page">
+    <div className={`skills-page${isGerman ? " is-german" : ""}`}>
       <div className="text">
         <h1>{t("skills.title")}</h1>
         <p>{t("skills.intro")}</p>
