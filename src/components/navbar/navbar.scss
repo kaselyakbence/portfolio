@@ -181,6 +181,10 @@
     right: 0;
     height: 10dvh;
 
+    body.mobile-safari & {
+      height: 10svh;
+    }
+
     .sidemenu-backdrop {
       display: block;
       position: fixed;
