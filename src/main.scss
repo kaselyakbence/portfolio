@@ -241,6 +241,22 @@ body.mobile-safari {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+
+  #root {
+    touch-action: none;
+  }
+
+  button {
+    touch-action: manipulation;
+  }
+
+  .card-right {
+    touch-action: pan-y;
+  }
+
+  .skills__viewport {
+    touch-action: pan-x;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
