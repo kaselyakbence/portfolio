@@ -1,5 +1,31 @@
 @use "../../../../../main.scss" as *;
 
+@keyframes timeline-reveal {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes timeline-point-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($bittersweet, 0.65);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba($bittersweet, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($bittersweet, 0);
+  }
+}
+
 .custom-timeline {
   position: relative;
 
@@ -30,6 +56,20 @@
     &:not(:last-child) {
       margin-bottom: 1rem;
     }
+
+    .app-section.is-visible & {
+      animation: timeline-reveal 450ms ease both;
+
+      .custom-timeline__point {
+        animation: timeline-point-pulse 650ms ease both;
+      }
+    }
+
+    @for $index from 2 through 6 {
+      &:nth-child(#{$index}) {
+        animation-delay: #{($index - 1) * 80}ms;
+      }
+    }
   }
 
   &__point {
@@ -52,5 +92,19 @@
 
     padding: 1rem;
     min-height: 120px;
+
+    &.is-interactive {
+      @extend %card-interaction;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__row {
+      animation: none;
+
+      .custom-timeline__point {
+        animation: none;
+      }
+    }
   }
 }

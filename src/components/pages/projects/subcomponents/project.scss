@@ -2,14 +2,17 @@
 
 .project {
   @extend %custom-card;
+  @extend %card-interaction;
 
   min-height: 40vh;
 
   margin-top: 10vh;
 
   @include sm {
-    margin-top: 10vh;
-    min-height: 25vh;
+    margin-top: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   @include md {
@@ -26,6 +29,18 @@
     width: 92%;
 
     @extend %custom-card;
+    opacity: 0;
+    transition:
+      opacity 250ms ease,
+      transform 250ms ease;
+
+    &.is-loaded {
+      opacity: 1;
+    }
+
+    &:hover {
+      transform: scale(1.04);
+    }
   }
 
   p {
@@ -46,7 +61,30 @@
     }
 
     @include sm {
+      min-width: 0;
       padding-bottom: 5%;
+
+      a {
+        width: 45%;
+        min-width: 0;
+        padding: 6px 2px;
+        font-size: 0.75rem;
+        overflow-wrap: anywhere;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-image {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+
+      &.is-loaded {
+        opacity: 1;
+      }
     }
   }
 }

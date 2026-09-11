@@ -61,6 +61,13 @@ const Navbar = (navbarState: NavbarState) => {
         </>
       </div>
 
+      <button
+        type="button"
+        className={isOpen ? "sidemenu-backdrop active" : "sidemenu-backdrop"}
+        aria-label={t("nav.closeMenu")}
+        onClick={() => setIsOpen(false)}
+      />
+
       <div className={isOpen ? "sidemenu active" : "sidemenu"}>
         {(Object.keys(navbarState) as (keyof NavbarState)[]).map((key) => (
           <NavbarItem

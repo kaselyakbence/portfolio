@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { useLocation, useNavigate } from "react-router";
 import { Lang, SUPPORTED_LANGUAGES, isSupportedLang } from "../i18n/languages";
 import "./languagetoggle.scss";
@@ -19,7 +20,6 @@ const LanguageToggle = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-
   const segments = location.pathname.split("/");
   const currentLang = isSupportedLang(segments[1]) ? segments[1] : "en";
 
@@ -30,14 +30,19 @@ const LanguageToggle = () => {
     }
 
     if (lang !== currentLang) {
+      document.body.classList.add("language-switching");
       segments[1] = lang;
       navigate(segments.join("/"), { replace: true });
+
+      window.setTimeout(() => {
+        document.body.classList.remove("language-switching");
+      }, 250);
     }
 
     setIsOpen(false);
   };
 
-  return (
+  return createPortal(
     <div className="language-toggle">
       {SUPPORTED_LANGUAGES.map((lang) => {
         const isCurrent = lang === currentLang;
@@ -58,7 +63,8 @@ const LanguageToggle = () => {
           </button>
         );
       })}
-    </div>
+    </div>,
+    document.body
   );
 };
 

@@ -22,7 +22,7 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
   };
 
   return (
-    <div className="card mobile-card">
+    <div className={`card mobile-card${active ? " is-active" : ""}`}>
       {active ? (
         <>
           <button
@@ -33,7 +33,7 @@ const MobileLayout = ({ mode, setMode }: MobileLayoutProps) => {
           >
             <IoMdClose />
           </button>
-          <TimelineContainer mode={mode} />
+          <TimelineContainer key={mode} mode={mode} />
         </>
       ) : (
         <div className="card-left">
@@ -122,7 +122,7 @@ const About = () => {
             </li>
           </ul>
         </div>
-        <TimelineContainer mode={mode} />
+        <TimelineContainer key={mode} mode={mode} />
       </div>
       <MobileLayout mode={mode} setMode={setMode} />
     </div>

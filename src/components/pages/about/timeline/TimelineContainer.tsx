@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { AboutMode } from "../About";
 import {
@@ -19,9 +20,21 @@ interface TimelineContainerProps {
 const TimelineContainer = ({ mode }: TimelineContainerProps) => {
   const { t, i18n } = useTranslation();
   const lang = isSupportedLang(i18n.language) ? i18n.language : "en";
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    containerRef.current?.scrollTo({ top: 0, left: 0 });
+  }, [mode]);
 
   return (
-    <div className="card-right">
+    <div
+      ref={containerRef}
+      className={
+        mode === "certifications"
+          ? "card-right certifications-view"
+          : "card-right"
+      }
+    >
       {mode === "professional" && (
         <CustomTimeline
           items={projectTimelineForLang(professionalEntries, lang)}

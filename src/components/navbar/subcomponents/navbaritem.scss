@@ -4,9 +4,24 @@
 .navbaritem {
   @extend %reset-button;
 
+  position: relative;
+  transition: color 180ms ease, transform 180ms ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    background-color: $bittersweet;
+    transform: scaleX(0);
+    transition: transform 180ms ease;
+  }
+
   &:hover {
     color: $bittersweet;
-    font-weight: bold;
+    transform: translateY(-2px);
   }
 
   @include sm {
@@ -22,14 +37,27 @@
   text-align: left;
 
   padding: 5px;
+  transition: color 180ms ease, transform 180ms ease;
 
   &:hover {
     color: $bittersweet;
-    font-weight: bold;
+    transform: translateX(4px);
   }
 }
 
 .navbaritem.active,
 .sidebaritem.active {
   color: color.adjust($bittersweet, $lightness: 0.5%);
+}
+
+.navbaritem.active::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbaritem,
+  .sidebaritem,
+  .navbaritem::after {
+    transition: none;
+  }
 }

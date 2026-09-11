@@ -18,6 +18,9 @@ interface TimelineTranslations {
 interface TimelineEntry {
   id: string;
   logo: string;
+  // Optional reference document (e.g. a recommendation letter) - opens in a
+  // new tab when set. Language-invariant: the same file for every locale.
+  link?: string;
   translations: Record<Lang, TimelineTranslations>;
 }
 
@@ -27,7 +30,11 @@ export const projectTimelineForLang = (
   entries: TimelineEntry[],
   lang: Lang
 ): CustomTimelineItemProps[] =>
-  entries.map((entry) => ({ ...entry.translations[lang], logo: entry.logo }));
+  entries.map((entry) => ({
+    ...entry.translations[lang],
+    logo: entry.logo,
+    link: entry.link,
+  }));
 
 export const professionalEntries: TimelineEntry[] = [
   {
@@ -81,6 +88,7 @@ export const professionalEntries: TimelineEntry[] = [
   {
     id: "mohanet-frontend-developer",
     logo: Mohanet,
+    link: "/mohanet_reference.pdf",
     translations: {
       en: {
         date: "07/2021 - 08/2022",
@@ -105,6 +113,7 @@ export const professionalEntries: TimelineEntry[] = [
   {
     id: "mohanet-frontend-trainee",
     logo: Mohanet,
+    link: "/mohanet_reference.pdf",
     translations: {
       en: {
         date: "02/2021 - 06/2021",

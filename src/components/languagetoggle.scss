@@ -1,12 +1,18 @@
 @use "../main.scss" as *;
 
 .language-toggle {
-  position: fixed;
-  bottom: 16px;
-  left: 16px;
+  position: fixed !important;
+  right: auto;
+  top: calc(100vh - 44px);
+  bottom: auto !important;
+  left: 16px !important;
   z-index: $z-overlay;
 
   display: flex;
+
+  @supports (height: 100svh) {
+    top: calc(100svh - 44px);
+  }
 
   button {
     @extend %reset-button;
@@ -27,7 +33,21 @@
       opacity 0.2s ease,
       padding 0.25s ease,
       margin 0.25s ease,
-      border-width 0.25s ease;
+      border-width 0.25s ease,
+      transform 0.18s ease,
+      color 0.18s ease,
+      background-color 0.18s ease;
+
+    &:hover {
+      color: $bittersweet;
+      background-color: rgba($bittersweet, 0.12);
+      transform: translateY(-2px);
+    }
+
+    &[aria-pressed="true"] {
+      border-color: $bittersweet;
+      background-color: rgba($bittersweet, 0.16);
+    }
 
     &.collapsed {
       max-width: 0;
@@ -37,5 +57,21 @@
       opacity: 0;
       pointer-events: none;
     }
+  }
+}
+
+body.language-switching .app-section > * {
+  opacity: 0.35;
+  transform: translateY(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .language-toggle button {
+    transition: none;
+  }
+
+  body.language-switching .app-section > * {
+    opacity: 1;
+    transform: none;
   }
 }

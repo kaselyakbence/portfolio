@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./section.scss";
 import { NavbarState } from "./navbar/Navbar";
 
@@ -10,10 +10,12 @@ interface SectionProps {
 
 const Section = ({ id, children, editNavbarState }: SectionProps) => {
   const targetRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(id === "home");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        setIsVisible(entry.isIntersecting);
         editNavbarState(id, entry.isIntersecting);
       },
       {
@@ -36,7 +38,11 @@ const Section = ({ id, children, editNavbarState }: SectionProps) => {
   }, [id, editNavbarState]);
 
   return (
-    <section id={id} className="app-section" ref={targetRef}>
+    <section
+      id={id}
+      className={isVisible ? "app-section is-visible" : "app-section"}
+      ref={targetRef}
+    >
       {children}
     </section>
   );

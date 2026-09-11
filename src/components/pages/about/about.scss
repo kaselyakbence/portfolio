@@ -1,6 +1,18 @@
 @use "sass:color";
 @use "../../../main.scss" as *;
 
+@keyframes about-content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .about-page {
   width: 80vw;
   height: 90vh;
@@ -14,6 +26,11 @@
   @include sm {
     width: 94vw;
     margin-left: 3vw;
+    min-height: calc(100vh - 10vh);
+    min-height: calc(100dvh - 10dvh);
+    height: auto;
+    padding-top: 4vh;
+    align-items: flex-start;
   }
 
   .card {
@@ -24,6 +41,13 @@
     height: 90%;
     width: 100%;
 
+    @include sm {
+      margin-top: 2vh;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+    }
+
     display: flex;
     .card-left {
       width: 40%;
@@ -33,6 +57,12 @@
 
       @include sm {
         width: 100%;
+        height: auto;
+        padding-top: 2%;
+
+        h1 {
+          margin-top: 0;
+        }
       }
 
       h1 {
@@ -63,6 +93,22 @@
             @extend %secondary-button;
 
             width: 100%;
+            transition:
+              color 180ms ease,
+              border-color 180ms ease,
+              transform 180ms ease;
+
+            &:hover {
+              transform: translateY(-2px);
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+
+              &:hover {
+                transform: none;
+              }
+            }
           }
         }
       }
@@ -86,6 +132,14 @@
 
       overflow-y: auto;
 
+      &.certifications-view {
+        overflow: visible;
+      }
+
+      > * {
+        animation: about-content-reveal 350ms ease both;
+      }
+
       @include sm {
         width: 100%;
 
@@ -105,10 +159,66 @@
   .mobile-card {
     display: none;
 
-    padding-top: 1%;
+    padding: 1rem;
+    overflow: visible;
 
     @include sm {
       display: block;
+      padding: 1rem;
+
+      .card-left {
+        padding: 0;
+
+        h1 {
+          margin-top: 0;
+        }
+      }
+
+      .card-right {
+        width: 100%;
+        height: auto;
+        padding: 0.5rem 0 1rem;
+        overflow-y: auto;
+      }
+    }
+
+    &:not(.is-active) {
+      @include sm {
+        margin-top: 0;
+        top: 10vh;
+        height: 81vh;
+        height: 81svh;
+        min-height: 0;
+      }
+    }
+
+    &.is-active {
+      @include sm {
+        top: 10vh;
+        height: 81vh;
+        height: 81svh;
+        max-height: 81vh;
+        max-height: 81svh;
+        padding-top: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .card-right {
+          flex: 1;
+          min-height: 0;
+          max-height: none;
+          padding-top: 0.5rem;
+          overflow-x: hidden;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+
+          &.certifications-view {
+            overflow-x: hidden;
+            overflow-y: auto;
+          }
+        }
+      }
     }
 
     .close-icon {
@@ -146,5 +256,11 @@
     @include sm {
       display: none;
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page .card-right > * {
+    animation: none;
   }
 }
