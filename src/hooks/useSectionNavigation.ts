@@ -43,6 +43,11 @@ const isWithinScrollableElement = (target: EventTarget | null): boolean => {
   return false;
 };
 
+const isInteractiveTarget = (target: EventTarget | null): boolean => {
+  const node = target instanceof Element ? target : null;
+  return Boolean(node?.closest("button, a, input, select, textarea"));
+};
+
 // Manages which page section is active and lets wheel/touch input jump one
 // section forward/backward, since native scrolling is disabled (see
 // body { overflow: hidden } in main.scss).
@@ -136,6 +141,7 @@ export const useSectionNavigation = () => {
     if (safariMobile) {
       let safariTouchStartY = 0;
       let safariTouchStartedInScrollable = false;
+      let safariTouchStartedOnInteractive = false;
       let safariTouchMoved = false;
 
       const handleSafariTouchStart = (event: TouchEvent) => {
@@ -143,21 +149,30 @@ export const useSectionNavigation = () => {
         safariTouchStartedInScrollable = isWithinScrollableElement(
           event.target
         );
+        safariTouchStartedOnInteractive = isInteractiveTarget(event.target);
         safariTouchMoved = false;
       };
 
       const handleSafariTouchMove = (event: TouchEvent) => {
-        if (safariTouchStartedInScrollable) return;
+        if (safariTouchStartedInScrollable || safariTouchStartedOnInteractive) {
+          return;
+        }
 
         const deltaY = safariTouchStartY - event.touches[0].clientY;
-        if (Math.abs(deltaY) >= SWIPE_THRESHOLD) {
+        if (Math.abs(deltaY) > 8) {
           event.preventDefault();
           safariTouchMoved = true;
         }
       };
 
       const handleSafariTouchEnd = (event: TouchEvent) => {
-        if (safariTouchStartedInScrollable || !safariTouchMoved) return;
+        if (
+          safariTouchStartedInScrollable ||
+          safariTouchStartedOnInteractive ||
+          !safariTouchMoved
+        ) {
+          return;
+        }
 
         const deltaY = safariTouchStartY - event.changedTouches[0].clientY;
         goToRelativeSection(deltaY > 0 ? 1 : -1);
