@@ -237,6 +237,11 @@ body {
   }
 }
 
+body.mobile-safari {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .video video {
     animation: none;

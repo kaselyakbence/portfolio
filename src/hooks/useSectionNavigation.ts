@@ -13,6 +13,15 @@ const sectionOrder = Object.keys(initialNavbarState) as (keyof NavbarState)[];
 const SCROLL_DURATION = 1000;
 const SWIPE_THRESHOLD = 50;
 
+const isMobileSafari = (): boolean => {
+  const userAgent = navigator.userAgent;
+  const isAppleMobileDevice = /iPhone|iPad|iPod/.test(userAgent);
+  const isSafari = /Safari/.test(userAgent);
+  const isOtherIOSBrowser = /CriOS|FxiOS|EdgiOS|OPiOS/.test(userAgent);
+
+  return isAppleMobileDevice && isSafari && !isOtherIOSBrowser;
+};
+
 // Lets wheel/touch input scroll an internally-scrollable element (e.g. the
 // about-page timeline lists) normally, instead of jumping sections.
 const isWithinScrollableElement = (target: EventTarget | null): boolean => {
@@ -51,6 +60,12 @@ export const useSectionNavigation = () => {
   }, []);
 
   useEffect(() => {
+    const safariMobile = isMobileSafari();
+
+    if (safariMobile) {
+      document.body.classList.add("mobile-safari");
+    }
+
     const goToRelativeSection = (direction: 1 | -1) => {
       if (isNavigatingRef.current) return;
 
@@ -110,6 +125,54 @@ export const useSectionNavigation = () => {
 
       goToRelativeSection(deltaY > 0 ? 1 : -1);
     };
+
+    if (safariMobile) {
+      let safariTouchStartY = 0;
+      let safariTouchStartedInScrollable = false;
+      let safariTouchMoved = false;
+
+      const handleSafariTouchStart = (event: TouchEvent) => {
+        safariTouchStartY = event.touches[0].clientY;
+        safariTouchStartedInScrollable = isWithinScrollableElement(
+          event.target
+        );
+        safariTouchMoved = false;
+      };
+
+      const handleSafariTouchMove = (event: TouchEvent) => {
+        if (safariTouchStartedInScrollable) return;
+
+        const deltaY = safariTouchStartY - event.touches[0].clientY;
+        if (Math.abs(deltaY) >= SWIPE_THRESHOLD) {
+          event.preventDefault();
+          safariTouchMoved = true;
+        }
+      };
+
+      const handleSafariTouchEnd = (event: TouchEvent) => {
+        if (safariTouchStartedInScrollable || !safariTouchMoved) return;
+
+        const deltaY = safariTouchStartY - event.changedTouches[0].clientY;
+        goToRelativeSection(deltaY > 0 ? 1 : -1);
+      };
+
+      window.addEventListener("touchstart", handleSafariTouchStart, {
+        passive: true,
+      });
+      window.addEventListener("touchmove", handleSafariTouchMove, {
+        passive: false,
+      });
+      window.addEventListener("touchend", handleSafariTouchEnd, {
+        passive: true,
+      });
+
+      return () => {
+        window.removeEventListener("touchstart", handleSafariTouchStart);
+        window.removeEventListener("touchmove", handleSafariTouchMove);
+        window.removeEventListener("touchend", handleSafariTouchEnd);
+        document.body.classList.remove("mobile-safari");
+      };
+    }
 
     window.addEventListener("wheel", handleWheel, { passive: false });
     window.addEventListener("touchstart", handleTouchStart, {
