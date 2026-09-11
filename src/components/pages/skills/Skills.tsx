@@ -52,7 +52,7 @@ const Skills = () => {
   const { t } = useTranslation();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    containScroll: "keepSnaps",
+    containScroll: "trimSnaps",
   });
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -114,8 +114,15 @@ const Skills = () => {
       <div className="skills">
         <div className="skills__viewport" ref={emblaRef}>
           <div className="skills__container">
-            {skillGroups.map(({ id, skills }) => (
-              <div className="skills__slide" key={id}>
+            {skillGroups.map(({ id, skills }, index) => (
+              <div
+                className={
+                  index >= selectedIndex && index < selectedIndex + visibleCount
+                    ? "skills__slide active"
+                    : "skills__slide"
+                }
+                key={id}
+              >
                 <SkillGroup name={t(`skills.groups.${id}`)} skills={skills} />
               </div>
             ))}

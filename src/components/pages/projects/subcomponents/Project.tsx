@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./project.scss";
 
@@ -10,13 +11,15 @@ interface ProjectProps {
 
 const Project = ({ name, githubLink, demoLink, imgSrc }: ProjectProps) => {
   const { t } = useTranslation();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <div className="project">
       <img
         src={imgSrc}
         alt=""
-        className="project-image"
+        className={imageLoaded ? "project-image is-loaded" : "project-image"}
+        onLoad={() => setImageLoaded(true)}
         loading="lazy"
         decoding="async"
       />

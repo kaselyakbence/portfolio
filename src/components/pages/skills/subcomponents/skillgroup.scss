@@ -2,9 +2,23 @@
 
 .skill-group {
   @extend %custom-card;
+  @extend %card-interaction;
 
   margin: 0 5%;
   height: 50vh;
+  box-shadow:
+    0 8px 18px rgba($black, 0.24),
+    0 2px 8px rgba($black, 0.14);
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease;
+
+  &:hover {
+    transform: translateY(-14px) scale(1.025);
+    box-shadow:
+      0 22px 36px rgba($black, 0.34),
+      0 8px 18px rgba($black, 0.18);
+  }
 
   .skill-name {
     height: 20%;
@@ -12,6 +26,14 @@
     h2 {
       margin-left: 5%;
       margin-top: 5%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
     }
   }
 }

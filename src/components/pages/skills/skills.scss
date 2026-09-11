@@ -6,6 +6,18 @@ $carousel-bp-two-items: 500px;
 $carousel-bp-three-items: 800px;
 $carousel-bp-four-items: 1300px;
 
+@keyframes skill-card-focus {
+  from {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .skills-page {
   width: 100%;
   height: 100%;
@@ -36,6 +48,8 @@ $carousel-bp-four-items: 1300px;
 
     &__viewport {
       overflow: hidden;
+      padding: 64px 0;
+      margin: -64px 0;
     }
 
     &__container {
@@ -45,6 +59,10 @@ $carousel-bp-four-items: 1300px;
     &__slide {
       flex: 0 0 100%;
       min-width: 0;
+
+      .app-section.is-visible &.active .skill-group {
+        animation: skill-card-focus 450ms ease both;
+      }
 
       @media (min-width: $carousel-bp-two-items) {
         flex-basis: 50%;
@@ -71,6 +89,10 @@ $carousel-bp-four-items: 1300px;
       border-radius: 50%;
 
       cursor: pointer;
+      transition:
+        color 180ms ease,
+        opacity 180ms ease,
+        transform 180ms ease;
 
       &:disabled {
         opacity: 0.3;
@@ -79,10 +101,18 @@ $carousel-bp-four-items: 1300px;
 
       &--prev {
         left: -20px;
+
+        &:hover:not(:disabled) {
+          transform: translateY(-50%) translateX(-3px);
+        }
       }
 
       &--next {
         right: -20px;
+
+        &:hover:not(:disabled) {
+          transform: translateY(-50%) translateX(3px);
+        }
       }
 
       @media (max-width: $carousel-bp-three-items - 1) {
@@ -107,10 +137,23 @@ $carousel-bp-four-items: 1300px;
 
       background-color: rgba($white, 0.3);
       cursor: pointer;
+      transition:
+        transform 180ms ease,
+        background-color 180ms ease;
 
       &.active {
         background-color: $white;
+        transform: scale(1.4);
       }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skills__slide.active .skill-group,
+    .skills__arrow,
+    .skills__dot {
+      animation: none;
+      transition: none;
     }
   }
 }

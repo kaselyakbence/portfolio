@@ -30,8 +30,13 @@ const LanguageToggle = () => {
     }
 
     if (lang !== currentLang) {
+      document.body.classList.add("language-switching");
       segments[1] = lang;
       navigate(segments.join("/"), { replace: true });
+
+      window.setTimeout(() => {
+        document.body.classList.remove("language-switching");
+      }, 250);
     }
 
     setIsOpen(false);

@@ -13,7 +13,11 @@ const CustomTimeline = ({ items }: CustomTimelineProps) => {
       {items.map((item, i) => (
         <li className="custom-timeline__row" key={item.title + i}>
           <div className="custom-timeline__point" />
-          <div className="custom-timeline__card">
+          <div
+            className={`custom-timeline__card${
+              item.link ? " is-interactive" : ""
+            }`}
+          >
             <CustomTimelineItem {...item} />
           </div>
         </li>

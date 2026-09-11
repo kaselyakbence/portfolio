@@ -2,12 +2,25 @@
 
 .cert-item {
   @extend %light-card;
+  @extend %card-interaction;
 
   width: 90%;
 
   margin-top: 3vh;
   margin-left: 5%;
   padding: 5px;
+
+  .app-section.is-visible & .link {
+    animation: timeline-reveal 450ms ease both;
+  }
+
+  @for $index from 2 through 6 {
+    &:nth-child(#{$index}) {
+      .link {
+        animation-delay: #{($index - 1) * 80}ms;
+      }
+    }
+  }
 }
 
 .cert-item-header {
@@ -32,9 +45,34 @@
   font-style: italic;
 }
 
+.right img {
+  opacity: 0;
+  transition: opacity 250ms ease;
+
+  &.is-loaded {
+    opacity: 1;
+  }
+}
+
 .left {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cert-item {
+    .link {
+      animation: none;
+    }
+  }
+
+  .right img {
+    transition: none;
+
+    &.is-loaded {
+      opacity: 1;
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./certitem.scss";
 
 interface CertItemProps {
@@ -8,6 +9,8 @@ interface CertItemProps {
   link: string;
 }
 const CertItem = ({ name, org, date, logo, link }: CertItemProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <li className="cert-item">
       <a className="link" href={link} target="_blank" rel="noopener noreferrer">
@@ -22,6 +25,8 @@ const CertItem = ({ name, org, date, logo, link }: CertItemProps) => {
               src={logo}
               alt={`${org} logo`}
               height="80px"
+              className={imageLoaded ? "is-loaded" : ""}
+              onLoad={() => setImageLoaded(true)}
               loading="lazy"
               decoding="async"
             />

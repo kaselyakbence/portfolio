@@ -1,6 +1,18 @@
 @use "sass:color";
 @use "../../../main.scss" as *;
 
+@keyframes about-content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .about-page {
   width: 80vw;
   height: 90vh;
@@ -63,6 +75,22 @@
             @extend %secondary-button;
 
             width: 100%;
+            transition:
+              color 180ms ease,
+              border-color 180ms ease,
+              transform 180ms ease;
+
+            &:hover {
+              transform: translateY(-2px);
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+
+              &:hover {
+                transform: none;
+              }
+            }
           }
         }
       }
@@ -85,6 +113,14 @@
       padding: 1%;
 
       overflow-y: auto;
+
+      &.certifications-view {
+        overflow: visible;
+      }
+
+      > * {
+        animation: about-content-reveal 350ms ease both;
+      }
 
       @include sm {
         width: 100%;
@@ -146,5 +182,11 @@
     @include sm {
       display: none;
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page .card-right > * {
+    animation: none;
   }
 }

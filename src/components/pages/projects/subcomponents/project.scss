@@ -2,6 +2,7 @@
 
 .project {
   @extend %custom-card;
+  @extend %card-interaction;
 
   min-height: 40vh;
 
@@ -28,6 +29,18 @@
     width: 92%;
 
     @extend %custom-card;
+    opacity: 0;
+    transition:
+      opacity 250ms ease,
+      transform 250ms ease;
+
+    &.is-loaded {
+      opacity: 1;
+    }
+
+    &:hover {
+      transform: scale(1.04);
+    }
   }
 
   p {
@@ -57,6 +70,20 @@
         padding: 6px 2px;
         font-size: 0.75rem;
         overflow-wrap: anywhere;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-image {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+
+      &.is-loaded {
+        opacity: 1;
       }
     }
   }

@@ -21,7 +21,11 @@ const TimelineContainer = ({ mode }: TimelineContainerProps) => {
   const lang = isSupportedLang(i18n.language) ? i18n.language : "en";
 
   return (
-    <div className="card-right">
+    <div
+      className={
+        mode === "certifications" ? "card-right certifications-view" : "card-right"
+      }
+    >
       {mode === "professional" && (
         <CustomTimeline
           items={projectTimelineForLang(professionalEntries, lang)}
