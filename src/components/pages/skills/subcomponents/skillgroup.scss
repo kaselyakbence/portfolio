@@ -6,6 +6,12 @@
 
   margin: 0 5%;
   height: 50vh;
+
+  @include sm {
+    height: 45vh;
+    height: 45svh;
+  }
+
   box-shadow:
     0 8px 18px rgba($black, 0.24),
     0 2px 8px rgba($black, 0.14);
