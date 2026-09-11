@@ -165,6 +165,11 @@
     @include sm {
       display: block;
       padding: 1rem;
+      margin-top: 0;
+      top: 10vh;
+      height: 81vh;
+      height: 81svh;
+      min-height: 0;
 
       .card-left {
         padding: 0;
@@ -182,23 +187,8 @@
       }
     }
 
-    &:not(.is-active) {
-      @include sm {
-        margin-top: 0;
-        top: 10vh;
-        height: 81vh;
-        height: 81svh;
-        min-height: 0;
-      }
-    }
-
     &.is-active {
       @include sm {
-        top: 10vh;
-        height: 81vh;
-        height: 81svh;
-        max-height: 81vh;
-        max-height: 81svh;
         padding-top: 0;
         overflow: hidden;
         display: flex;
