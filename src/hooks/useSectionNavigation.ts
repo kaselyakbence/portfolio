@@ -15,7 +15,9 @@ const SWIPE_THRESHOLD = 50;
 
 const isMobileSafari = (): boolean => {
   const userAgent = navigator.userAgent;
-  const isAppleMobileDevice = /iPhone|iPad|iPod/.test(userAgent);
+  const isAppleMobileDevice =
+    /iPhone|iPad|iPod/.test(userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const isSafari = /Safari/.test(userAgent);
   const isOtherIOSBrowser = /CriOS|FxiOS|EdgiOS|OPiOS/.test(userAgent);
 
@@ -144,7 +146,6 @@ export const useSectionNavigation = () => {
 
         const deltaY = safariTouchStartY - event.touches[0].clientY;
         if (Math.abs(deltaY) >= SWIPE_THRESHOLD) {
-          event.preventDefault();
           safariTouchMoved = true;
         }
       };
