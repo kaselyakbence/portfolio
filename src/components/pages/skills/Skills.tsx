@@ -19,7 +19,7 @@ const frontendSkills = [
   { name: "HTML", number: 3, isHalf: true },
   { name: "CSS", number: 4 },
   { name: "SCSS", number: 3, isHalf: true },
-  { name: "PWA", number: 2, isHalf: true },
+  { name: "PWA", number: 3, isHalf: false },
 ];
 const backendSkills = [
   { name: "NodeJS", number: 4 },
@@ -37,7 +37,7 @@ const testingSkills = [
 const languageSkills = [
   { name: "Hungarian", number: 5 },
   { name: "English", number: 4, isHalf: true },
-  { name: "German", number: 2, isHalf: true },
+  { name: "German", number: 3, isHalf: true },
 ];
 
 const skillGroups = [

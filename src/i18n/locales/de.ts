@@ -49,6 +49,6 @@ export default {
   },
   projects: {
     github: "GitHub",
-    liveDemo: "Live-Demo",
+    liveDemo: "Live demo",
   },
 };
